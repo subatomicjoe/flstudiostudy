@@ -1,5 +1,6 @@
 """Build index.html: notes.md + content/*.json inlined into tools/app_template.html.
-Run: python tools/build_app.py   (also writes _test.html, a doctype-wrapped copy for local testing)
+Run: python tools/build_app.py
+Writes index.html (for the claude.ai artifact) and docs/index.html (full page for GitHub Pages; also use it for local testing).
 """
 import html, json, os, re
 
@@ -140,10 +141,17 @@ def main():
     assert "/*__DATA__*/null" in tpl
     out = tpl.replace("/*__DATA__*/null", blob)
     open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8").write(out)
-    test = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
-            '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"></head><body>' + out + "</body></html>")
-    open(os.path.join(ROOT, "_test.html"), "w", encoding="utf-8").write(test)
-    print(f"index.html: {len(out.encode()) / 1024:.0f} KB · {len(topics)} topics · {len(glossary)} glossary terms · {len(data['fc'])} cards · {len(data['mcq'])} MCQs")
+    # index.html relies on the claude.ai artifact wrapper; GitHub Pages needs a complete document
+    page = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
+            '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">'
+            '<meta name="theme-color" content="#1f242b">'
+            '<meta name="description" content="Flashcards, quiz and notes for the FL Studio 2025 sound design exam. Unofficial student study aid.">'
+            '<meta property="og:title" content="Exam Rack">'
+            '<meta property="og:description" content="Flashcards, quiz and notes for the FL Studio 2025 sound design exam. Unofficial student study aid.">'
+            '</head><body>' + out + "</body></html>")
+    os.makedirs(os.path.join(ROOT, "docs"), exist_ok=True)
+    open(os.path.join(ROOT, "docs", "index.html"), "w", encoding="utf-8").write(page)
+    print(f"index.html + docs/index.html: {len(out.encode()) / 1024:.0f} KB · {len(topics)} topics · {len(glossary)} glossary terms · {len(data['fc'])} cards · {len(data['mcq'])} MCQs")
 
 if __name__ == "__main__":
     main()

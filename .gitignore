@@ -1,5 +1,6 @@
-# local test copy written by tools/build_app.py
+# old local test copy; local preview settings hold a machine-specific path
 _test.html
+.claude/
 __pycache__/
 *.pyc
 # OS / OneDrive clutter

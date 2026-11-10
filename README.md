@@ -2,7 +2,8 @@
 
 Unofficial student study aid for the FL Studio 2025 "Advanced Sound Designing" exam (15 Nov 2026). Not affiliated with Image-Line.
 
-Published app (private until shared from the page's Share menu): https://claude.ai/artifact/L9vTcUsycsmPgPhPw19aNQ
+Public app (GitHub Pages, once enabled): https://subatomicjoe.github.io/flstudiostudy/
+Claude artifact copy (private until shared from the page's Share menu): https://claude.ai/artifact/L9vTcUsycsmPgPhPw19aNQ
 
 ## What's here
 | Path | What it is |
@@ -14,7 +15,8 @@ Published app (private until shared from the page's Share menu): https://claude.
 | `tools/qa.py` | Checks the banks: minimums, answer balance, duplicates, schema |
 | `tools/app_template.html` | The app's CSS, markup and JavaScript |
 | `tools/build_app.py` | Inlines notes + banks into `index.html` |
-| `index.html` | The finished single-file app that gets published |
+| `index.html` | The finished single-file app for the claude.ai artifact |
+| `docs/index.html` | The same app as a complete web page, served by GitHub Pages |
 | `design.md`, `design-preview.html` | Approved design spec and static preview |
 
 ## Making a change
@@ -25,7 +27,8 @@ Published app (private until shared from the page's Share menu): https://claude.
    python tools/qa.py
    python tools/build_app.py
    ```
-3. Republish `index.html` to the **same** artifact. In Claude, give it the artifact link above so it updates that page instead of creating a new one.
+3. Commit and push. GitHub Pages updates the public link by itself about a minute later.
+4. Optional: republish `index.html` to the **same** artifact. In Claude, give it the artifact link above so it updates that page instead of creating a new one.
 
 ## Known source conflicts (left out of all questions)
 - Draw vs Paint key (§ 7 vs § 20)
