@@ -1,0 +1,8 @@
+# local test copy written by tools/build_app.py
+_test.html
+__pycache__/
+*.pyc
+# OS / OneDrive clutter
+Thumbs.db
+desktop.ini
+.DS_Store

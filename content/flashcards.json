@@ -1,0 +1,849 @@
+[
+ {
+  "id": "fc-01-1",
+  "topic": "1 FL Studio Interface",
+  "front": "Which window opens with F5, and what is it for?",
+  "back": "The Playlist. It is the song timeline, where you arrange patterns, audio clips and automation.",
+  "source": "§ 1 FL Studio Interface > Five core windows"
+ },
+ {
+  "id": "fc-01-2",
+  "topic": "1 FL Studio Interface",
+  "front": "What is the Channel Rack's shortcut, and what do you do there?",
+  "back": "F6. You load instruments and samples, and program drums and patterns.",
+  "source": "§ 1 FL Studio Interface > Five core windows"
+ },
+ {
+  "id": "fc-01-3",
+  "topic": "1 FL Studio Interface",
+  "front": "Which window does F7 open?",
+  "back": "The Piano Roll, where you write melodies, chords and basslines.",
+  "source": "§ 1 FL Studio Interface > Five core windows"
+ },
+ {
+  "id": "fc-01-4",
+  "topic": "1 FL Studio Interface",
+  "front": "What does F9 open, and what is it used for?",
+  "back": "The Mixer. It is used for routing, volume balancing and effects processing.",
+  "source": "§ 1 FL Studio Interface > Five core windows"
+ },
+ {
+  "id": "fc-01-5",
+  "topic": "1 FL Studio Interface",
+  "front": "Your windows are lost or rearranged. Which shortcut resets the layout to default?",
+  "back": "Shift + Ctrl + H.",
+  "source": "§ 1 FL Studio Interface > Beginner tip"
+ },
+ {
+  "id": "fc-02-1",
+  "topic": "2 Channel Rack",
+  "front": "What is one row in the Channel Rack?",
+  "back": "A Channel: one instrument or sample. The Channel Rack is the central hub for all sound sources.",
+  "source": "§ 2 Channel Rack"
+ },
+ {
+  "id": "fc-02-2",
+  "topic": "2 Channel Rack",
+  "front": "What is the Step Sequencer, and where is it?",
+  "back": "It sits on the right side of the Channel Rack and lets you quickly program drum patterns.",
+  "source": "§ 2 Channel Rack"
+ },
+ {
+  "id": "fc-02-3",
+  "topic": "2 Channel Rack",
+  "front": "Name two ways to add an instrument to the Channel Rack.",
+  "back": "Click the + button at the bottom, or drag a plugin from the Browser or Plugin Picker into the Channel Rack.",
+  "source": "§ 2 Channel Rack > Key operations"
+ },
+ {
+  "id": "fc-02-4",
+  "topic": "2 Channel Rack",
+  "front": "In the Channel Rack, how do you mute a channel, and how do you solo it?",
+  "back": "Click the green light on the left of the channel to mute it. Right-click the light to solo it.",
+  "source": "§ 2 Channel Rack > Key operations"
+ },
+ {
+  "id": "fc-03-1",
+  "topic": "3 Sampler Channels",
+  "front": "What happens when you drag a WAV or MP3 file into the Channel Rack?",
+  "back": "FL Studio automatically creates a Sampler Channel for it.",
+  "source": "§ 3 Sampler Channels"
+ },
+ {
+  "id": "fc-03-2",
+  "topic": "3 Sampler Channels",
+  "front": "What kind of audio is a Sampler Channel mainly used for?",
+  "back": "Playing one-shot audio, such as drum hits, sound effects and vocal chops.",
+  "source": "§ 3 Sampler Channels"
+ },
+ {
+  "id": "fc-03-3",
+  "topic": "3 Sampler Channels",
+  "front": "How do you replace the audio in a Sampler channel?",
+  "back": "Right-click the Sampler channel and choose Load Sample.",
+  "source": "§ 3 Sampler Channels > Key operations"
+ },
+ {
+  "id": "fc-03-4",
+  "topic": "3 Sampler Channels",
+  "front": "Which controls does the Sampler's settings panel offer?",
+  "back": "Envelope, looping and pitch controls.",
+  "source": "§ 3 Sampler Channels > Key operations"
+ },
+ {
+  "id": "fc-04-1",
+  "topic": "4 Insert",
+  "front": "What does the Insert command in the Channel Rack do?",
+  "back": "It adds a new instrument channel without affecting existing channels.",
+  "source": "§ 4 Insert"
+ },
+ {
+  "id": "fc-04-2",
+  "topic": "4 Insert",
+  "front": "Where does a channel added with Insert appear?",
+  "back": "Above the currently selected channel.",
+  "source": "§ 4 Insert"
+ },
+ {
+  "id": "fc-04-3",
+  "topic": "4 Insert",
+  "front": "How do you use Insert?",
+  "back": "Right-click any channel button, choose Insert >, then pick an instrument from the list.",
+  "source": "§ 4 Insert > How to use"
+ },
+ {
+  "id": "fc-04-4",
+  "topic": "4 Insert",
+  "front": "The instrument you want isn't in the Insert list. What do you do?",
+  "back": "Click More... to open the full plugin picker, then double-click the instrument to add it.",
+  "source": "§ 4 Insert > How to use"
+ },
+ {
+  "id": "fc-05-1",
+  "topic": "5 Replace",
+  "front": "What does Replace do to a channel?",
+  "back": "It swaps the channel's instrument for a different one, while keeping all notes and pattern data.",
+  "source": "§ 5 Replace"
+ },
+ {
+  "id": "fc-05-2",
+  "topic": "5 Replace",
+  "front": "How do you use Replace?",
+  "back": "Right-click the channel you want to change, choose Replace >, then select the new instrument.",
+  "source": "§ 5 Replace > How to use"
+ },
+ {
+  "id": "fc-05-3",
+  "topic": "5 Replace",
+  "front": "You built a drum pattern with a temporary kick. How do you get a better kick without redrawing the rhythm?",
+  "back": "Use Replace on the kick channel. The pattern stays intact.",
+  "source": "§ 5 Replace > Typical use case"
+ },
+ {
+  "id": "fc-05-4",
+  "topic": "5 Replace",
+  "front": "How does Replace help when you've been writing with a placeholder synth?",
+  "back": "You can swap the placeholder for your final sound and keep the notes you already wrote.",
+  "source": "§ 5 Replace > Typical use case"
+ },
+ {
+  "id": "fc-06-1",
+  "topic": "6 Browser Panel",
+  "front": "What is the Browser's shortcut, and what is it?",
+  "back": "Alt/Opt + F8. It is your single entry point for all media, working like a file explorer for everything FL Studio can use.",
+  "source": "§ 6 Browser Panel"
+ },
+ {
+  "id": "fc-06-2",
+  "topic": "6 Browser Panel",
+  "front": "What is in the Browser's Packs section?",
+  "back": "Stock samples, loops and presets that come with FL Studio.",
+  "source": "§ 6 Browser Panel > Main sections"
+ },
+ {
+  "id": "fc-06-3",
+  "topic": "6 Browser Panel",
+  "front": "What does the Browser's Current project section show?",
+  "back": "Samples and files already used in the open project.",
+  "source": "§ 6 Browser Panel > Main sections"
+ },
+ {
+  "id": "fc-06-4",
+  "topic": "6 Browser Panel",
+  "front": "Where can you drag items from the Browser?",
+  "back": "Into the Channel Rack, the Playlist or the Mixer.",
+  "source": "§ 6 Browser Panel > How to use"
+ },
+ {
+  "id": "fc-07-1",
+  "topic": "7 Piano Roll",
+  "front": "How do you open the Piano Roll for a particular channel?",
+  "back": "Right-click the channel and choose Piano roll. Every channel has its own Piano Roll.",
+  "source": "§ 7 Piano Roll"
+ },
+ {
+  "id": "fc-07-2",
+  "topic": "7 Piano Roll",
+  "front": "What is the Paint (brush) tool best for?",
+  "back": "Drawing continuous streams of notes, for example hi-hat rolls.",
+  "source": "§ 7 Piano Roll > Essential tool shortcuts"
+ },
+ {
+  "id": "fc-07-3",
+  "topic": "7 Piano Roll",
+  "front": "What does the Slice tool (C) do?",
+  "back": "It cuts a note into two at the point you click.",
+  "source": "§ 7 Piano Roll > Essential tool shortcuts"
+ },
+ {
+  "id": "fc-07-4",
+  "topic": "7 Piano Roll",
+  "front": "How does the Delete (eraser) tool (D) remove notes?",
+  "back": "You drag over the notes you want to remove.",
+  "source": "§ 7 Piano Roll > Essential tool shortcuts"
+ },
+ {
+  "id": "fc-08-1",
+  "topic": "8 Chords & Melodies",
+  "front": "What does the Stamp tool do?",
+  "back": "It places a full chord instantly: choose a chord type from the dropdown, then click a root note.",
+  "source": "§ 8 Chords & Melodies > Stamp tool"
+ },
+ {
+  "id": "fc-08-2",
+  "topic": "8 Chords & Melodies",
+  "front": "How do you open the Stamp tool?",
+  "back": "Click the Stamp tool (hand icon) in the Piano Roll toolbar, or press Alt + C.",
+  "source": "§ 8 Chords & Melodies > Stamp tool"
+ },
+ {
+  "id": "fc-08-3",
+  "topic": "8 Chords & Melodies",
+  "front": "What does Strumize (Alt + S) do?",
+  "back": "It slightly offsets the notes of a chord to create a natural, guitar-like strum.",
+  "source": "§ 8 Chords & Melodies > Strumize"
+ },
+ {
+  "id": "fc-08-4",
+  "topic": "8 Chords & Melodies",
+  "front": "What is Bassline Mode, new in FL Studio 2025?",
+  "back": "A mode in the Chord Progression Tool that generates a matching bassline from your current chord progression.",
+  "source": "§ 8 Chords & Melodies > 2025 feature – Bassline Mode"
+ },
+ {
+  "id": "fc-09-1",
+  "topic": "9 Piano Roll Tools (Basic)",
+  "front": "Where do you turn on Scale Highlighting, and what does it do?",
+  "back": "Helpers > Scale highlighting. You choose a key and scale, and notes outside the scale are dimmed.",
+  "source": "§ 9 Piano Roll Tools (Basic) > Scale Highlighting"
+ },
+ {
+  "id": "fc-09-2",
+  "topic": "9 Piano Roll Tools (Basic)",
+  "front": "What do Ghost Channels (Alt + V) show?",
+  "back": "Faint notes from other channels while you edit one channel, e.g. chords while you write a bassline.",
+  "source": "§ 9 Piano Roll Tools (Basic) > Ghost Channels"
+ },
+ {
+  "id": "fc-09-3",
+  "topic": "9 Piano Roll Tools (Basic)",
+  "front": "What does Chop chords (Alt + U) do?",
+  "back": "It turns a held chord into an arpeggiated stream of notes.",
+  "source": "§ 9 Piano Roll Tools (Basic) > Chop chords"
+ },
+ {
+  "id": "fc-09-4",
+  "topic": "9 Piano Roll Tools (Basic)",
+  "front": "What is the Riff Machine (Alt + E) for?",
+  "back": "It generates melodic motifs and variations from your existing progression. It's useful for breaking writer's block.",
+  "source": "§ 9 Piano Roll Tools (Basic) > Riff Machine"
+ },
+ {
+  "id": "fc-10-1",
+  "topic": "10 Notes",
+  "front": "How do you move selected notes up or down by one semitone?",
+  "back": "Shift + ↑ or Shift + ↓.",
+  "source": "§ 10 Notes > Common operations > Transpose"
+ },
+ {
+  "id": "fc-10-2",
+  "topic": "10 Notes",
+  "front": "Where do you change note velocity in the Piano Roll?",
+  "back": "Select the notes and drag the vertical bars in the velocity pane at the bottom of the Piano Roll.",
+  "source": "§ 10 Notes > Common operations > Velocity"
+ },
+ {
+  "id": "fc-10-3",
+  "topic": "10 Notes",
+  "front": "What does Alt + R do to selected notes, and why use it?",
+  "back": "It randomises velocity, which makes drums or keyboards sound more human.",
+  "source": "§ 10 Notes > Common operations > Velocity"
+ },
+ {
+  "id": "fc-10-4",
+  "topic": "10 Notes",
+  "front": "What are slide notes, and what are they essential for?",
+  "back": "Notes that create pitch glides. They are FL Studio's signature feature and essential for 808 basslines.",
+  "source": "§ 10 Notes > Common operations > Slide notes"
+ },
+ {
+  "id": "fc-11-1",
+  "topic": "11 Piano Roll Tools (Advanced / Generative)",
+  "front": "What does 'Fill each 2 / 4 / 8 step' do?",
+  "back": "It automatically fills notes at fixed intervals, to build steady rhythmic patterns quickly.",
+  "source": "§ 11 Piano Roll Tools (Advanced / Generative) > Fill each 2 / 4 / 8 step"
+ },
+ {
+  "id": "fc-11-2",
+  "topic": "11 Piano Roll Tools (Advanced / Generative)",
+  "front": "Which examples does the source give for 'Fill each' patterns?",
+  "back": "A kick every 4 steps and a snare every 8 steps.",
+  "source": "§ 11 Piano Roll Tools (Advanced / Generative) > Fill each 2 / 4 / 8 step"
+ },
+ {
+  "id": "fc-11-3",
+  "topic": "11 Piano Roll Tools (Advanced / Generative)",
+  "front": "Where does the source say 'Fill each 2 / 4 / 8 step' is found?",
+  "back": "In the Stamp menu or related tools.",
+  "source": "§ 11 Piano Roll Tools (Advanced / Generative) > Fill each 2 / 4 / 8 step"
+ },
+ {
+  "id": "fc-11-4",
+  "topic": "11 Piano Roll Tools (Advanced / Generative)",
+  "front": "How do you use the Riff Machine at an advanced level?",
+  "back": "Adjust its parameters to produce different variations of a motif. It's a fast way to get editable MIDI material.",
+  "source": "§ 11 Piano Roll Tools (Advanced / Generative) > Riff Machine (advanced use)"
+ },
+ {
+  "id": "fc-12-1",
+  "topic": "12 Tempo Tapper",
+  "front": "When would you use the Tempo Tapper?",
+  "back": "When you have a sample or melody but don't know its BPM.",
+  "source": "§ 12 Tempo Tapper"
+ },
+ {
+  "id": "fc-12-2",
+  "topic": "12 Tempo Tapper",
+  "front": "How do you open the Tempo Tapper?",
+  "back": "Right-click the BPM value in the top toolbar and choose Tap, or open it from the View menu.",
+  "source": "§ 12 Tempo Tapper > How to use"
+ },
+ {
+  "id": "fc-12-3",
+  "topic": "12 Tempo Tapper",
+  "front": "How do you measure tempo with the Tempo Tapper?",
+  "back": "Play the audio and click the TAP button repeatedly in time with the beat. After several taps, FL Studio estimates the BPM.",
+  "source": "§ 12 Tempo Tapper > How to use"
+ },
+ {
+  "id": "fc-12-4",
+  "topic": "12 Tempo Tapper",
+  "front": "What does the Apply tempo setting control?",
+  "back": "When enabled, the project tempo is set to the tapped value. When disabled, it only measures and doesn't change the project.",
+  "source": "§ 12 Tempo Tapper > How to use"
+ },
+ {
+  "id": "fc-13-1",
+  "topic": "13 Templates",
+  "front": "What are templates?",
+  "back": "Pre-configured project starting points that save you from repeating the same setup every time.",
+  "source": "§ 13 Templates"
+ },
+ {
+  "id": "fc-13-2",
+  "topic": "13 Templates",
+  "front": "Which menu command starts a project from a template?",
+  "back": "File > New from template.",
+  "source": "§ 13 Templates > How to use"
+ },
+ {
+  "id": "fc-13-3",
+  "topic": "13 Templates",
+  "front": "What is Loop Starter (FL Studio 2025)?",
+  "back": "Genre-based loop templates that let you start a loop immediately and access FL Cloud samples directly.",
+  "source": "§ 13 Templates > 2025 feature – Loop Starter"
+ },
+ {
+  "id": "fc-13-4",
+  "topic": "13 Templates",
+  "front": "How do you make your own template?",
+  "back": "Set up your favourite tracks, routing and effects, then save the project as a template file in FL Studio's Templates folder. It then appears in New from template.",
+  "source": "§ 13 Templates > Custom templates"
+ },
+ {
+  "id": "fc-14-1",
+  "topic": "14 Make Some Noise",
+  "front": "What is the first practical goal in the 'Make Some Noise' exercise?",
+  "back": "Build a complete 4-bar loop using the minimal workflow.",
+  "source": "§ 14 Make Some Noise"
+ },
+ {
+  "id": "fc-14-2",
+  "topic": "14 Make Some Noise",
+  "front": "Which three drum sounds does the beginner exercise use, and where are they programmed?",
+  "back": "Kick, Clap/Snare and Hi-hat, programmed in the Step Sequencer.",
+  "source": "§ 14 Make Some Noise > Step 1: Drums"
+ },
+ {
+  "id": "fc-14-3",
+  "topic": "14 Make Some Noise",
+  "front": "In the beginner exercise, how should the bassline be drawn?",
+  "back": "In the bass channel's Piano Roll, following the root notes.",
+  "source": "§ 14 Make Some Noise > Step 2: Bass"
+ },
+ {
+  "id": "fc-14-4",
+  "topic": "14 Make Some Noise",
+  "front": "Which chain does the 'Make Some Noise' exercise aim to connect?",
+  "back": "Channel Rack → Piano Roll → Playlist.",
+  "source": "§ 14 Make Some Noise"
+ },
+ {
+  "id": "fc-15-1",
+  "topic": "15 Packs and Sounds",
+  "front": "What do the Packs contain, and how are they organised?",
+  "back": "Drum samples, loops, one-shot effects and presets, organised by style and type.",
+  "source": "§ 15 Packs and Sounds"
+ },
+ {
+  "id": "fc-15-2",
+  "topic": "15 Packs and Sounds",
+  "front": "What does the Sounds tab let you do?",
+  "back": "Browse and audition FL Cloud samples and drag them straight into your project, if your edition includes FL Cloud access.",
+  "source": "§ 15 Packs and Sounds"
+ },
+ {
+  "id": "fc-15-3",
+  "topic": "15 Packs and Sounds",
+  "front": "How do you quickly find a sound like an 808 in the Browser?",
+  "back": "Type it into the search box at the top of the Browser, e.g. '808', to filter.",
+  "source": "§ 15 Packs and Sounds > Browsing tip"
+ },
+ {
+  "id": "fc-15-4",
+  "topic": "15 Packs and Sounds",
+  "front": "How do you preview a sample in the Browser?",
+  "back": "Click it. Whether it plays depends on your preview settings.",
+  "source": "§ 15 Packs and Sounds > Browsing tip"
+ },
+ {
+  "id": "fc-16-1",
+  "topic": "16 Mixer Track Routing",
+  "front": "Where does every Channel Rack instrument output by default?",
+  "back": "Directly to the Master track.",
+  "source": "§ 16 Mixer Track Routing"
+ },
+ {
+  "id": "fc-16-2",
+  "topic": "16 Mixer Track Routing",
+  "front": "Which field in the channel settings panel routes a channel to a Mixer Insert?",
+  "back": "The FX / TRK field. Type or drag to the target Insert number.",
+  "source": "§ 16 Mixer Track Routing > Three common routing methods"
+ },
+ {
+  "id": "fc-16-3",
+  "topic": "16 Mixer Track Routing",
+  "front": "What is the order of steps for routing with Ctrl + L?",
+  "back": "Select the channels in the Channel Rack, click the target Insert in the Mixer, then press Ctrl + L.",
+  "source": "§ 16 Mixer Track Routing > Three common routing methods"
+ },
+ {
+  "id": "fc-16-4",
+  "topic": "16 Mixer Track Routing",
+  "front": "How does 'Route to this track' work?",
+  "back": "Select the target Insert on the Mixer, then right-click the channel in the Channel Rack and choose Route to this track.",
+  "source": "§ 16 Mixer Track Routing > Three common routing methods"
+ },
+ {
+  "id": "fc-17-1",
+  "topic": "17 Mixer Track Options",
+  "front": "How do you rename a Mixer track?",
+  "back": "Select it and press F2, or right-click the track label and choose Rename.",
+  "source": "§ 17 Mixer Track Options > Common track options"
+ },
+ {
+  "id": "fc-17-2",
+  "topic": "17 Mixer Track Options",
+  "front": "How do you colour-code a Mixer track, and why?",
+  "back": "Right-click the track label → Change color. Consistent colours per instrument group help you navigate quickly.",
+  "source": "§ 17 Mixer Track Options > Common track options"
+ },
+ {
+  "id": "fc-17-3",
+  "topic": "17 Mixer Track Options",
+  "front": "How do you solo a Mixer track?",
+  "back": "Right-click its green circular mute button. All other tracks mute.",
+  "source": "§ 17 Mixer Track Options > Common track options"
+ },
+ {
+  "id": "fc-17-4",
+  "topic": "17 Mixer Track Options",
+  "front": "Which controls at the top of a Mixer strip set panning and width?",
+  "back": "The pan and stereo separation knobs.",
+  "source": "§ 17 Mixer Track Options > Common track options"
+ },
+ {
+  "id": "fc-18-1",
+  "topic": "18 Effects Rack",
+  "front": "How many effect slots does each Mixer track have?",
+  "back": "10.",
+  "source": "§ 18 Effects Rack"
+ },
+ {
+  "id": "fc-18-2",
+  "topic": "18 Effects Rack",
+  "front": "In which direction does audio flow through the effect slots?",
+  "back": "From Slot 1 to Slot 10, top to bottom.",
+  "source": "§ 18 Effects Rack"
+ },
+ {
+  "id": "fc-18-3",
+  "topic": "18 Effects Rack",
+  "front": "How do you change the order of effects on a track?",
+  "back": "Drag the slot labels. The signal flow changes to match.",
+  "source": "§ 18 Effects Rack > How to use"
+ },
+ {
+  "id": "fc-18-4",
+  "topic": "18 Effects Rack",
+  "front": "How do you bypass one effect for an A/B comparison?",
+  "back": "Click the green indicator on the left of that slot.",
+  "source": "§ 18 Effects Rack > How to use"
+ },
+ {
+  "id": "fc-18-5",
+  "topic": "18 Effects Rack",
+  "front": "What is the typical order of effects on a track?",
+  "back": "EQ → compression → creative effects (saturation, chorus) → time-based effects (delay / reverb).",
+  "source": "§ 18 Effects Rack > Typical order"
+ },
+ {
+  "id": "fc-19-1",
+  "topic": "19 Mixer Panel Tools",
+  "front": "What does the peak meter on a Mixer strip show, and what should you avoid?",
+  "back": "The real-time level. Avoid clipping (red).",
+  "source": "§ 19 Mixer Panel Tools"
+ },
+ {
+  "id": "fc-19-2",
+  "topic": "19 Mixer Panel Tools",
+  "front": "What does the volume fader on a Mixer strip do?",
+  "back": "It adjusts the track's output level.",
+  "source": "§ 19 Mixer Panel Tools"
+ },
+ {
+  "id": "fc-19-3",
+  "topic": "19 Mixer Panel Tools",
+  "front": "What is the Record Arm button, and where is it?",
+  "back": "The circular button (often a disk icon) at the bottom of the strip. It arms the Mixer track as a recording destination.",
+  "source": "§ 19 Mixer Panel Tools"
+ },
+ {
+  "id": "fc-19-4",
+  "topic": "19 Mixer Panel Tools",
+  "front": "List the Mixer strip tools from top to bottom.",
+  "back": "Track name, peak meter, pan / stereo separation, volume fader, mute / solo, record arm.",
+  "source": "§ 19 Mixer Panel Tools"
+ },
+ {
+  "id": "fc-20-1",
+  "topic": "20 Playlist",
+  "front": "What are Playlist tracks called, and what can they hold?",
+  "back": "Multi-purpose Clip Tracks. They can hold Pattern Clips, Audio Clips and Automation Clips.",
+  "source": "§ 20 Playlist"
+ },
+ {
+  "id": "fc-20-2",
+  "topic": "20 Playlist",
+  "front": "What does a Pattern Clip play?",
+  "back": "The content of a Pattern from the Channel Rack (notes, drums).",
+  "source": "§ 20 Playlist > Clip types"
+ },
+ {
+  "id": "fc-20-3",
+  "topic": "20 Playlist",
+  "front": "What does an Audio Clip play?",
+  "back": "Recorded or imported audio.",
+  "source": "§ 20 Playlist > Clip types"
+ },
+ {
+  "id": "fc-20-4",
+  "topic": "20 Playlist",
+  "front": "What does an Automation Clip do?",
+  "back": "It automates a parameter over time.",
+  "source": "§ 20 Playlist > Clip types"
+ },
+ {
+  "id": "fc-21-1",
+  "topic": "21 Patterns To Songs",
+  "front": "Complete the source's analogy: Patterns are the ___; the Playlist is the ___.",
+  "back": "Patterns are the ingredients; the Playlist is the finished dish.",
+  "source": "§ 21 Patterns To Songs"
+ },
+ {
+  "id": "fc-21-2",
+  "topic": "21 Patterns To Songs",
+  "front": "How do you build a song structure from Patterns?",
+  "back": "Create Patterns such as Intro, Verse, Chorus and Bridge, then arrange copies of their clips from left to right in the Playlist.",
+  "source": "§ 21 Patterns To Songs"
+ },
+ {
+  "id": "fc-21-3",
+  "topic": "21 Patterns To Songs",
+  "front": "What does pressing L do?",
+  "back": "It switches to Song mode, so FL Studio plays all clips in the order they appear in the Playlist.",
+  "source": "§ 21 Patterns To Songs"
+ },
+ {
+  "id": "fc-21-4",
+  "topic": "21 Patterns To Songs",
+  "front": "You edit a Pattern that is used in six places in the Playlist. What happens?",
+  "back": "Every clip that references that Pattern updates automatically.",
+  "source": "§ 21 Patterns To Songs"
+ },
+ {
+  "id": "fc-22-1",
+  "topic": "22 Playlist Tools",
+  "front": "What does Chop do in the Playlist?",
+  "back": "It slices Pattern or Automation Clips into smaller pieces for rearranging.",
+  "source": "§ 22 Playlist Tools > Chop"
+ },
+ {
+  "id": "fc-22-2",
+  "topic": "22 Playlist Tools",
+  "front": "Where do you find Chop in the Playlist?",
+  "back": "In the Clip menu or the right-click menu.",
+  "source": "§ 22 Playlist Tools > Chop"
+ },
+ {
+  "id": "fc-22-3",
+  "topic": "22 Playlist Tools",
+  "front": "What does Snap control in the Playlist?",
+  "back": "The grid resolution for moving and slicing clips.",
+  "source": "§ 22 Playlist Tools > Snap"
+ },
+ {
+  "id": "fc-22-4",
+  "topic": "22 Playlist Tools",
+  "front": "What 2025 improvement helps you navigate long songs in the Playlist?",
+  "back": "A mini overview added to the horizontal scrollbar.",
+  "source": "§ 22 Playlist Tools > 2025 improvement"
+ },
+ {
+  "id": "fc-23-1",
+  "topic": "23 Audio Recording",
+  "front": "What is the first step to record audio?",
+  "back": "Open the Mixer (F9) and select a free Insert Track.",
+  "source": "§ 23 Audio Recording > Step 1"
+ },
+ {
+  "id": "fc-23-2",
+  "topic": "23 Audio Recording",
+  "front": "Where do you set the recording input, and which input does a mono mic usually use?",
+  "back": "At the top of the Mixer track (e.g. In 1). A mono microphone usually uses a mono input.",
+  "source": "§ 23 Audio Recording > Step 2"
+ },
+ {
+  "id": "fc-23-3",
+  "topic": "23 Audio Recording",
+  "front": "How do you arm a Mixer track for recording?",
+  "back": "Click the record-arm button (circular/disk icon) at the bottom of the track so it lights up.",
+  "source": "§ 23 Audio Recording > Step 3"
+ },
+ {
+  "id": "fc-23-4",
+  "topic": "23 Audio Recording",
+  "front": "What must be ticked in the main Record button's right-click menu to record audio?",
+  "back": "Audio.",
+  "source": "§ 23 Audio Recording > Step 4"
+ },
+ {
+  "id": "fc-23-5",
+  "topic": "23 Audio Recording",
+  "front": "After recording audio, what appears in the Playlist?",
+  "back": "An Audio Clip, with an Audio Track automatically created and linked to it.",
+  "source": "§ 23 Audio Recording > Step 5"
+ },
+ {
+  "id": "fc-24-1",
+  "topic": "24 Recording & Editing Automation",
+  "front": "How do you set FL Studio to record automation?",
+  "back": "Right-click the main Record button and tick Automation.",
+  "source": "§ 24 Recording & Editing Automation > A. Record automation"
+ },
+ {
+  "id": "fc-24-2",
+  "topic": "24 Recording & Editing Automation",
+  "front": "What does recording automation by turning a knob create?",
+  "back": "Event Data (event automation), which you can edit in the Event Editor.",
+  "source": "§ 24 Recording & Editing Automation > A. Record automation"
+ },
+ {
+  "id": "fc-24-3",
+  "topic": "24 Recording & Editing Automation",
+  "front": "How do you convert recorded automation into an Automation Clip?",
+  "back": "Edit > Turn into automation clip.",
+  "source": "§ 24 Recording & Editing Automation > A. Record automation"
+ },
+ {
+  "id": "fc-24-4",
+  "topic": "24 Recording & Editing Automation",
+  "front": "How do you create an Automation Clip manually?",
+  "back": "Right-click any automatable knob or parameter and choose Create automation clip. It appears in the Playlist.",
+  "source": "§ 24 Recording & Editing Automation > B. Create an Automation Clip manually"
+ },
+ {
+  "id": "fc-24-5",
+  "topic": "24 Recording & Editing Automation",
+  "front": "Which 2025 improvement lets you set exact automation values?",
+  "back": "A Type value field in the Automation Clip node pop-up menu.",
+  "source": "§ 24 Recording & Editing Automation > B. Create an Automation Clip manually"
+ },
+ {
+  "id": "fc-25-1",
+  "topic": "25 Mixing & Effects",
+  "front": "What is the aim of mixing?",
+  "back": "To make all sounds coexist in volume, frequency and space without masking each other.",
+  "source": "§ 25 Mixing & Effects"
+ },
+ {
+  "id": "fc-25-2",
+  "topic": "25 Mixing & Effects",
+  "front": "Where should volume balancing start?",
+  "back": "With the most important element (kick or vocal). Build the other tracks around it and keep the Master meter out of constant red.",
+  "source": "§ 25 Mixing & Effects > Core workflow > Volume balance"
+ },
+ {
+  "id": "fc-25-3",
+  "topic": "25 Mixing & Effects",
+  "front": "What does EQ do in the mix, and which plugin does the source name?",
+  "back": "It cuts unwanted low or harsh high frequencies. The plugin is Fruity Parametric EQ 2.",
+  "source": "§ 25 Mixing & Effects > Core workflow > Effects processing"
+ },
+ {
+  "id": "fc-25-4",
+  "topic": "25 Mixing & Effects",
+  "front": "Why use Sends for reverb and delay?",
+  "back": "To share one reverb or delay, so multiple sounds sit in the same space.",
+  "source": "§ 25 Mixing & Effects > Core workflow > Effects processing"
+ },
+ {
+  "id": "fc-25-5",
+  "topic": "25 Mixing & Effects",
+  "front": "What does a sidechain do in the source's example?",
+  "back": "The kick triggers a compressor on the bass, so the bass ducks when the kick hits.",
+  "source": "§ 25 Mixing & Effects > Core workflow > Sidechain"
+ },
+ {
+  "id": "fc-26-1",
+  "topic": "26 Plugins",
+  "front": "What are the two main categories of plugins?",
+  "back": "Generators (instruments), which produce sound, and Effects, which process sound.",
+  "source": "§ 26 Plugins"
+ },
+ {
+  "id": "fc-26-2",
+  "topic": "26 Plugins",
+  "front": "Which window manages plugins, and what is its shortcut?",
+  "back": "The Plugin Picker, F8.",
+  "source": "§ 26 Plugins"
+ },
+ {
+  "id": "fc-26-3",
+  "topic": "26 Plugins",
+  "front": "How do you add a plugin to Favorites, and what happens then?",
+  "back": "Right-click it in the Plugin Picker and add it to Favorites. It appears at the top of the list, and FL Studio learns your usage habits.",
+  "source": "§ 26 Plugins > Management tips"
+ },
+ {
+  "id": "fc-26-4",
+  "topic": "26 Plugins",
+  "front": "What can the Plugin Manager do in FL Studio 2025?",
+  "back": "Change a plugin's type (e.g. Effect to Generator) after verification. Waves VST3 and VST2 entries also merge automatically.",
+  "source": "§ 26 Plugins > Management tips > 2025 improvement"
+ },
+ {
+  "id": "fc-27-1",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "front": "How is pitch shown in the Piano Roll?",
+  "back": "On the vertical axis: higher notes are placed further up.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Pitch"
+ },
+ {
+  "id": "fc-27-2",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "front": "What is middle C called in FL Studio's default naming?",
+  "back": "C5.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Pitch"
+ },
+ {
+  "id": "fc-27-3",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "front": "Which four properties does a note in the Piano Roll have?",
+  "back": "Pitch (vertical position), start time (horizontal position), length (width) and velocity.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Note"
+ },
+ {
+  "id": "fc-27-4",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "front": "What is an octave?",
+  "back": "The interval to a pitch with double or half the frequency. Notes an octave apart share a letter name, e.g. C4, C5, C6.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Octave"
+ },
+ {
+  "id": "fc-27-5",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "front": "What is a semitone?",
+  "back": "The smallest interval in Western music: one piano key, or one step on the Piano Roll grid.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Semitone (Half Step)"
+ },
+ {
+  "id": "fc-27-6",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "front": "What is the difference between a key and a scale?",
+  "back": "A scale is a set of notes that forms the tonal basis of a piece. The key is the central note the piece is built around (e.g. C major).",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Key"
+ },
+ {
+  "id": "fc-27-7",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "front": "How does harmony differ from melody?",
+  "back": "Melody is a sequence of single notes forming the main tune. Harmony is simultaneous notes, usually chords, that support it.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Harmony"
+ },
+ {
+  "id": "fc-27-8",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "front": "How many steps per bar does the Step Sequencer show by default, and what note value is that?",
+  "back": "16 steps, which correspond to sixteenth notes.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Beat & Bar"
+ },
+ {
+  "id": "fc-27-9",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "front": "What is timbre, and what determines it in FL Studio?",
+  "back": "The character or 'colour' of a sound. It is determined by the instrument plugin you choose and its settings.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Timbre (Tone Colour)"
+ },
+ {
+  "id": "fc-27-10",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "front": "What is the difference between a Pattern and a Clip?",
+  "back": "A Pattern is a container for musical data. A Clip is a block in the Playlist that plays back a Pattern, audio or automation.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Pattern"
+ },
+ {
+  "id": "fc-27-11",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "front": "What is the Master track?",
+  "back": "The final Mixer track that all other tracks feed into: the overall output of the song. Keep it below clipping.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Master Track"
+ },
+ {
+  "id": "fc-27-12",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "front": "What is a Send?",
+  "back": "A route from one Mixer track to another, typically to share an effect like reverb or delay across several sounds.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Send"
+ }
+]

@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Exam Rack Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Share+Tech+Mono&display=swap">
+<style>
+/* Layout: hardware rack shell (toolbar · hint bar · stage · transport) — container query at 760px switches phone ↔ desktop */
+:root{
+  color-scheme: dark;
+  --bg:#101317; --panel:#1e232a; --panel-hi:#2a3039; --panel-lo:#171b21; --edge:#090b0e;
+  --read:#13171c; --read-line:#262c35;
+  --text-read:#e8ecf0; --text:#d6dce3; --text-2:#a4aeba; --text-3:#808b98;
+  --amber:#ff9f2e; --amber-hi:#ffc072; --amber-lo:#9a5810; --amber-ink:#1c1106;
+  --lcd-bg:#0c0905; --lcd-on:#ffb04a; --lcd-off:rgba(255,176,74,.08);
+  --ok:#41dc74; --ok-lo:#16502a; --bad:#ff5c4f; --bad-lo:#5e1a15; --led-off:#2b3038;
+  --pad-a:#363c45; --pad-b:#2b3038;
+  --board:#0a0c0f;
+  --f-label:"Barlow Condensed","Arial Narrow",sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-data:"Share Tech Mono",ui-monospace,Consolas,monospace;
+  --bevel:inset 0 1px 0 rgba(255,255,255,.07),inset 0 -1px 0 rgba(0,0,0,.45);
+  --raise:0 2px 3px rgba(0,0,0,.55);
+  --sink:inset 0 2px 4px rgba(0,0,0,.6),inset 0 0 0 1px rgba(0,0,0,.35);
+  --brushed:repeating-linear-gradient(90deg,rgba(255,255,255,.014) 0 1px,transparent 1px 3px);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--board);color:var(--text);font:15px/1.5 var(--f-body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 64px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--amber-hi);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+kbd{font:600 .8em/1 var(--f-body);padding:.2em .45em .22em;border-radius:3px;border:1px solid var(--edge);background:linear-gradient(180deg,#3b424c,#2a3038);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 1px 0 var(--edge);color:var(--text);white-space:nowrap}
+
+/* ---------- preview board (not part of the app) ---------- */
+.pv-head{max-width:1240px;margin:0 auto 40px;display:grid;gap:12px}
+.pv-head h1{font:700 40px/1 var(--f-label);letter-spacing:.02em;text-transform:uppercase;margin:0;color:#fff;text-wrap:balance}
+.pv-head p{margin:0;max-width:70ch;color:var(--text-2)}
+.pv-sec{max-width:1240px;margin:0 auto 56px;display:grid;gap:14px}
+.pv-sec>h2{font:600 15px/1 var(--f-label);letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin:0;display:flex;gap:10px;align-items:baseline}
+.pv-sec>h2 span{font:13px var(--f-data);color:var(--text-3);letter-spacing:0;text-transform:none}
+.pv-note{margin:0;color:var(--text-2);max-width:80ch;font-size:14px}
+.pv-row{display:flex;gap:28px;align-items:flex-start;overflow-x:auto;padding-bottom:8px}
+.pv-col{display:grid;gap:8px;flex:none}
+.pv-cap{font:12px var(--f-data);color:var(--text-3)}
+.pv-phone{width:390px;border-radius:18px;overflow:hidden;outline:1px solid #222831}
+.pv-dwrap{width:calc(1280px * var(--k));--k:.6;overflow:hidden;border-radius:10px;outline:1px solid #222831}
+.pv-desk{width:1280px;transform:scale(var(--k));transform-origin:0 0}
+
+/* tokens & states sheet */
+.sheet{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));background:var(--panel);border:1px solid var(--edge);border-radius:6px;padding:20px;box-shadow:var(--bevel)}
+.sheet h3{margin:0 0 10px;font:600 13px/1 var(--f-label);letter-spacing:.1em;text-transform:uppercase;color:var(--text-2)}
+.sw{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.sw div{display:grid;gap:4px;font:11px/1.2 var(--f-data);color:var(--text-2)}
+.sw div::before{content:"";height:36px;border-radius:3px;background:var(--c);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.states{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.state{display:grid;gap:6px;justify-items:start;font:11px var(--f-data);color:var(--text-3)}
+.specimen{display:grid;gap:8px}
+.specimen .l{font:600 14px var(--f-label);letter-spacing:.08em;text-transform:uppercase}
+.specimen .b{font:17px/1.55 var(--f-body);color:var(--text-read)}
+.specimen .d{font:13px var(--f-data);color:var(--text-2)}
+
+/* ---------- APP ---------- */
+.app{container:app/inline-size;position:relative;display:flex;flex-direction:column;min-height:800px;background:var(--bg);color:var(--text);font:15px/1.5 var(--f-body);overflow:hidden}
+
+/* toolbar */
+.toolbar{display:flex;align-items:center;gap:12px;padding:8px 16px;background:var(--brushed),linear-gradient(180deg,#2c323b,#1f242b);border-bottom:1px solid var(--edge);box-shadow:var(--bevel)}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand-name{font:700 20px/1 var(--f-label);letter-spacing:.06em;text-transform:uppercase;color:#fff;white-space:nowrap}
+.brand-sub{display:none;font:500 12px/1 var(--f-label);letter-spacing:.1em;text-transform:uppercase;color:var(--text-2);white-space:nowrap}
+.screw{display:none;width:10px;height:10px;border-radius:50%;flex:none;background:linear-gradient(45deg,transparent 44%,rgba(0,0,0,.65) 44% 56%,transparent 56%),radial-gradient(circle at 35% 30%,#7a828c,#2a2f36 75%);box-shadow:0 1px 0 rgba(255,255,255,.06),inset 0 0 0 1px rgba(0,0,0,.4)}
+.tabs{display:none;gap:4px;padding:4px;border-radius:6px;background:var(--panel-lo);box-shadow:var(--sink);margin-inline:auto}
+.tab{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 16px;border:1px solid var(--edge);border-radius:4px;background:linear-gradient(180deg,#363d47,#282e36);box-shadow:var(--bevel),var(--raise);font:600 14px/1 var(--f-label);letter-spacing:.08em;text-transform:uppercase;color:var(--text-2);cursor:pointer}
+.tab:hover,.tab.is-hover{background:linear-gradient(180deg,#404853,#2d343d);color:#fff}
+.tab[aria-current]{background:linear-gradient(180deg,#1a1e24,#22272e);box-shadow:var(--sink);color:var(--amber-hi);transform:translateY(1px)}
+.tab[aria-current] .led{background:radial-gradient(circle at 35% 30%,#fff1d6,var(--amber) 45%,#8a4a08);box-shadow:0 0 6px 1px rgba(255,159,46,.55)}
+.lcd{margin-left:auto;display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:4px;border:1px solid var(--edge);background:linear-gradient(180deg,rgba(255,176,74,.035),transparent 55%),var(--lcd-bg);box-shadow:var(--sink),0 1px 0 rgba(255,255,255,.06)}
+.lcd-label{font:600 11px/1 var(--f-label);letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.seg{display:inline-flex;gap:.1em;height:1em;font-size:22px;color:var(--lcd-on);filter:drop-shadow(0 0 3px rgba(255,176,74,.5))}
+.seg svg{height:1em;width:auto;display:block}
+.seg .on{fill:currentColor}.seg .off{fill:var(--lcd-off)}
+
+/* LEDs */
+.led{width:8px;height:8px;border-radius:50%;flex:none;background:radial-gradient(circle at 35% 30%,#4a515b,#1b1f24 70%);box-shadow:inset 0 0 0 1px rgba(0,0,0,.6)}
+.led.on{background:radial-gradient(circle at 35% 30%,#fff1d6,var(--amber) 45%,#8a4a08);box-shadow:0 0 6px 1px rgba(255,159,46,.55)}
+.led.ok{background:radial-gradient(circle at 35% 30%,#e3ffe9,var(--ok) 45%,#167236);box-shadow:0 0 7px 1px rgba(65,220,116,.6)}
+.led.bad{background:radial-gradient(circle at 35% 30%,#ffe2df,var(--bad) 45%,#8e1f17);box-shadow:0 0 7px 1px rgba(255,92,79,.6)}
+
+/* hint bar */
+.hintbar{display:flex;gap:10px;align-items:center;min-height:30px;padding:5px 16px;background:#0e1114;border-bottom:1px solid var(--edge);box-shadow:inset 0 1px 3px rgba(0,0,0,.5);font-size:13px;line-height:1.3;color:var(--text-2);white-space:nowrap;overflow:hidden}
+.hint-k{font:600 11px/1 var(--f-label);letter-spacing:.12em;color:var(--amber);text-transform:uppercase;flex:none}
+.hint-t{color:var(--text);flex:none}
+.hint-s{font-family:var(--f-data);color:var(--text-3);overflow:hidden;text-overflow:ellipsis;min-width:0}
+
+/* stage & footer */
+.stage{flex:1;padding:16px;display:grid;align-content:start;gap:16px}
+.stage>*{width:100%;max-width:880px;margin-inline:auto}
+.stage>.results{max-width:1100px}.stage>.qn{max-width:820px}.stage>.fn{max-width:1180px}
+.foot{padding:12px 16px;text-align:center;font-size:12px;color:var(--text-3)}
+
+/* phone transport nav */
+.tnav{position:sticky;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:8px max(10px,env(safe-area-inset-left,0px)) calc(8px + env(safe-area-inset-bottom,0px));background:var(--brushed),linear-gradient(180deg,#272d35,#1a1e24);border-top:1px solid var(--edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.tnav-btn{display:grid;justify-items:center;gap:5px;padding:7px 2px 8px;border:1px solid var(--edge);border-radius:4px;background:linear-gradient(180deg,#343b45,#262c34);box-shadow:var(--bevel),var(--raise);color:var(--text-2);font:600 12px/1 var(--f-label);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.tnav-btn .bar{width:18px;height:3px;border-radius:2px;background:var(--led-off);box-shadow:inset 0 0 0 1px rgba(0,0,0,.5)}
+.tnav-btn[aria-current]{background:linear-gradient(180deg,#1a1e24,#22272e);box-shadow:var(--sink);color:var(--amber-hi);transform:translateY(1px)}
+.tnav-btn[aria-current] .bar{background:var(--amber);box-shadow:0 0 6px rgba(255,159,46,.7)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border:1px solid var(--edge);border-radius:4px;background:linear-gradient(180deg,#373e48,#282e36);box-shadow:var(--bevel),var(--raise);font:600 14px/1 var(--f-label);letter-spacing:.08em;text-transform:uppercase;color:var(--text);cursor:pointer;transition:transform 60ms}
+.btn:hover,.btn.is-hover{background:linear-gradient(180deg,#414954,#2d343d);color:#fff}
+.btn:active,.btn.is-pressed{background:linear-gradient(180deg,#1a1e24,#23282f);box-shadow:var(--sink);transform:translateY(1px)}
+.btn:disabled,.btn.is-disabled{opacity:.45;cursor:not-allowed;box-shadow:var(--bevel);transform:none}
+.btn--amber{color:var(--amber-ink);border-color:#4a2804;background:linear-gradient(180deg,#ffb658,#f08b14);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(0,0,0,.25),var(--raise)}
+.btn--amber:hover,.btn--amber.is-hover{background:linear-gradient(180deg,#ffc679,#f79a2c);color:var(--amber-ink)}
+.btn--amber:active,.btn--amber.is-pressed{background:linear-gradient(180deg,#c86e0a,#e08316);box-shadow:inset 0 2px 4px rgba(0,0,0,.45);color:var(--amber-ink)}
+.toggle[aria-pressed="true"]{background:linear-gradient(180deg,#1a1e24,#23282f);box-shadow:var(--sink);color:var(--amber-hi)}
+.toggle[aria-pressed="true"] .led{background:radial-gradient(circle at 35% 30%,#fff1d6,var(--amber) 45%,#8a4a08);box-shadow:0 0 6px 1px rgba(255,159,46,.55)}
+
+/* window */
+.win{border:1px solid var(--edge);border-radius:6px;background:var(--panel);box-shadow:0 10px 28px rgba(0,0,0,.45),var(--bevel);overflow:hidden;min-width:0}
+.win-bar{display:flex;align-items:center;gap:8px;min-height:34px;padding:0 12px;background:var(--brushed),linear-gradient(180deg,#333a44,#262c34);border-bottom:1px solid var(--edge);box-shadow:var(--bevel);font:600 13px/1 var(--f-label);letter-spacing:.08em;text-transform:uppercase;color:var(--text);white-space:nowrap}
+.win-title{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.win-meta{margin-left:auto;font:13px/1 var(--f-data);letter-spacing:0;text-transform:none;color:var(--text-2)}
+
+/* flashcard */
+.card{display:flex;flex-direction:column;gap:14px;width:100%;min-height:240px;padding:24px 20px 18px;border:0;background:var(--read);color:var(--text-read);text-align:left;cursor:pointer}
+.card-eyebrow{font:600 12px/1 var(--f-label);letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.card-q{display:block;font:500 21px/1.35 var(--f-body);text-wrap:balance}
+.card-a{display:block;font:400 19px/1.45 var(--f-body)}
+.card-hint{margin-top:auto;display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-3)}
+.card-src{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;padding-top:12px;border-top:1px solid var(--read-line)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:3px;background:var(--panel-lo);box-shadow:var(--sink);font:600 12px/1 var(--f-label);letter-spacing:.08em;text-transform:uppercase;color:var(--text)}
+.src{font:13px/1.3 var(--f-data);color:var(--text-2)}
+
+/* step pads */
+.steps{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;padding:10px;border-radius:6px;background:var(--panel-lo);box-shadow:var(--sink)}
+.pad{position:relative;height:32px;padding:0;border:1px solid var(--edge);border-radius:2px;background:linear-gradient(180deg,#414852,var(--pad-a));box-shadow:var(--bevel),0 1px 2px rgba(0,0,0,.55);font:600 11px/1 var(--f-label);color:var(--text-2);cursor:pointer;transition:transform 60ms}
+.pad.g2{background:linear-gradient(180deg,#353b44,var(--pad-b))}
+.pad:hover,.pad.is-hover{filter:brightness(1.15)}
+.pad.visited{background:linear-gradient(180deg,#704b1b,#4e3311);color:var(--text)}
+.pad.current{background:radial-gradient(ellipse at 50% 35%,#ffe2b0,var(--amber) 55%,#c46f0c);color:var(--amber-ink);box-shadow:inset 0 1px 2px rgba(0,0,0,.35),0 0 10px rgba(255,159,46,.55);transform:translateY(1px)}
+
+/* transport */
+.transport{display:flex;flex-wrap:wrap;gap:8px}
+.tp{display:flex;gap:4px;padding:4px;border-radius:6px;background:var(--panel-lo);box-shadow:var(--sink);flex:1 1 100%}
+.tp .btn{flex:1}
+.tp--side{flex:1 1 100%}
+
+/* quiz */
+.q-face{padding:22px 20px;background:var(--read);color:var(--text-read)}
+.q-text{margin:0;font:500 21px/1.38 var(--f-body);text-wrap:pretty}
+.opts{display:grid;gap:10px}
+.opt{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;align-items:center;gap:12px;min-height:64px;padding:12px 14px;border:1px solid var(--edge);border-radius:6px;background:linear-gradient(180deg,#353c46,#272d35);box-shadow:var(--bevel),0 3px 0 #0d1013,0 5px 8px rgba(0,0,0,.4);font:500 16px/1.38 var(--f-body);color:var(--text-read);text-align:left;cursor:pointer;transition:transform 60ms}
+.opt:hover,.opt.is-hover{background:linear-gradient(180deg,#3e4650,#2c333c);box-shadow:var(--bevel),0 4px 0 #0d1013,0 6px 10px rgba(0,0,0,.45);transform:translateY(-1px)}
+.opt:active,.opt.is-pressed{transform:translateY(3px);box-shadow:var(--bevel),0 0 0 #0d1013,0 1px 2px rgba(0,0,0,.4)}
+.key{display:grid;place-items:center;width:28px;height:28px;border-radius:3px;background:var(--panel-lo);box-shadow:var(--sink);font:700 15px/1 var(--f-label);color:var(--text-2)}
+.mark{width:24px;text-align:center;font:700 22px/1 var(--f-body)}
+.opt.is-locked{cursor:default;color:var(--text-2);transform:translateY(2px);box-shadow:var(--bevel),0 1px 0 #0d1013;background:linear-gradient(180deg,#2c323b,#242930)}
+.opt.is-ok{color:var(--text-read);border-color:#0b3a1b;background:linear-gradient(180deg,#1f3d2a,#162e1f);box-shadow:inset 0 0 0 1px rgba(65,220,116,.55),inset 0 0 18px rgba(65,220,116,.12),0 1px 0 #0d1013;transform:translateY(2px)}
+.opt.is-ok .mark{color:var(--ok)}.opt.is-ok .key{color:var(--ok)}
+.opt.is-bad{color:var(--text-read);border-color:#3d0f0b;background:linear-gradient(180deg,#43221f,#321816);box-shadow:inset 0 0 0 1px rgba(255,92,79,.6),inset 0 0 18px rgba(255,92,79,.12),0 0 0 #0d1013;transform:translateY(3px)}
+.opt.is-bad .mark{color:var(--bad)}.opt.is-bad .key{color:var(--bad)}
+.explain{display:grid;gap:10px;padding:16px;background:var(--read);border:1px solid var(--read-line);border-radius:6px}
+.ex-head{display:flex;align-items:center;gap:8px;font:600 14px/1 var(--f-label);letter-spacing:.1em;text-transform:uppercase}
+.ex-head.ok{color:var(--ok)}.ex-head.bad{color:var(--bad)}
+.explain p{margin:0;font-size:16px;line-height:1.55;color:var(--text-read);max-width:66ch}
+.ex-foot{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between;padding-top:10px;border-top:1px solid var(--read-line)}
+
+/* results mixer */
+.results{display:grid;gap:16px}
+.mixer-body{display:flex;flex-direction:column;gap:10px;padding:12px;background:var(--brushed),var(--panel)}
+.strips{display:flex;gap:6px;overflow-x:auto;min-width:0;padding:2px 2px 8px;scrollbar-color:#3a414b transparent}
+.strip{flex:0 0 70px;display:grid;justify-items:center;gap:8px;padding:10px 6px;border:1px solid var(--edge);border-radius:4px;background:linear-gradient(180deg,#2b313a,#20252c);box-shadow:var(--bevel)}
+.s-num{min-width:30px;padding:3px 4px;border-radius:3px;background:var(--lcd-bg);box-shadow:var(--sink);font:15px/1 var(--f-data);color:var(--lcd-on);text-align:center;text-shadow:0 0 4px rgba(255,176,74,.5)}
+.s-meter{display:flex;gap:8px;height:150px}
+.meter{display:flex;flex-direction:column-reverse;gap:2px;width:10px;padding:2px;border-radius:2px;background:#07090b;box-shadow:var(--sink)}
+.meter i{flex:1;border-radius:1px;background:#152019}
+.meter i.on{background:linear-gradient(90deg,#2aa957,var(--ok));box-shadow:0 0 4px rgba(65,220,116,.45)}
+.fader{position:relative;width:16px;background:linear-gradient(#050607,#050607) center/3px 100% no-repeat}
+.cap{position:absolute;left:50%;bottom:var(--p,0%);width:24px;height:12px;transform:translate(-50%,50%);border-radius:2px;background:linear-gradient(180deg,#eef1f4,#9ea7b1 46%,#5f6771 54%,#c3cad2);box-shadow:0 2px 3px rgba(0,0,0,.7)}
+.cap::after{content:"";position:absolute;left:3px;right:3px;top:5px;height:2px;background:var(--amber)}
+.s-score{font:15px/1 var(--f-data);color:var(--text)}
+.s-name{font:600 11px/1.15 var(--f-label);letter-spacing:.06em;text-transform:uppercase;color:var(--text-2);text-align:center;min-height:2.3em}
+.master{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px 14px;padding:12px 14px;border:1px solid var(--edge);border-radius:4px;background:linear-gradient(180deg,#30373f,#22272e);box-shadow:var(--bevel),var(--raise)}
+.m-label{font:700 14px/1 var(--f-label);letter-spacing:.14em;color:#fff}
+.master .lcd{margin:0;justify-self:end}
+.master .seg{font-size:40px}
+.master .meter{grid-column:1/-1;flex-direction:row;width:auto;height:12px}
+.m-pct{grid-column:1/-1;font:13px var(--f-data);color:var(--text-2)}
+.h2{margin:8px 0 0;font:600 15px/1 var(--f-label);letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.missed{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.miss{display:grid;gap:8px;padding:14px 16px;background:var(--read);border:1px solid var(--read-line);border-radius:6px}
+.miss-q{margin:0;font:500 16px/1.45 var(--f-body);color:var(--text-read)}
+.miss-row{display:grid;grid-template-columns:22px 1fr;gap:6px;font-size:15px;line-height:1.45;color:var(--text-read)}
+.miss-row b{font-size:17px;line-height:1.3}
+.miss-row.bad b{color:var(--bad)}.miss-row.ok b{color:var(--ok)}
+.miss-row small{display:block;font:600 11px/1.4 var(--f-label);letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+.miss p{margin:0;font-size:15px;line-height:1.55;color:var(--text-2)}
+
+/* quick notes browser */
+.qn-tools{display:flex;gap:8px;align-items:center;padding:10px}
+.search{flex:1;display:flex;align-items:center;gap:8px;min-width:0;height:44px;padding:0 12px;border:1px solid var(--edge);border-radius:4px;background:#0c0f12;box-shadow:var(--sink);color:var(--text-3)}
+.search:focus-within{box-shadow:var(--sink),0 0 0 2px var(--amber-hi)}
+.search input{flex:1;min-width:0;height:100%;border:0;background:none;color:var(--text-read);font:16px var(--f-body);outline:none}
+.search input::placeholder{color:var(--text-3)}
+.qn-count{padding:0 12px 8px;font:12px var(--f-data);color:var(--text-2)}
+.folders{list-style:none;margin:0;padding:0 0 6px}
+.folder{width:100%;display:flex;align-items:center;gap:8px;min-height:44px;padding:0 12px;border:0;border-top:1px solid rgba(0,0,0,.4);box-shadow:inset 0 1px 0 rgba(255,255,255,.025);background:transparent;color:var(--text);font:500 15px/1.25 var(--f-body);text-align:left;cursor:pointer}
+.folder:hover{background:rgba(255,255,255,.035)}
+.folder .chev{width:16px;height:16px;color:var(--text-3);transition:transform 120ms}
+.folder .fic{width:18px;height:18px;color:var(--text-2)}
+.folder[aria-expanded="true"]{color:var(--amber-hi);background:linear-gradient(90deg,rgba(255,159,46,.09),transparent 70%)}
+.folder[aria-expanded="true"] .chev{transform:rotate(90deg);color:var(--amber)}
+.folder[aria-expanded="true"] .fic{color:var(--amber);fill:rgba(255,159,46,.25)}
+.f-num{font:13px/1 var(--f-data);color:var(--text-2);width:2.2ch;flex:none}
+.f-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.f-count{margin-left:auto;font:12px/1 var(--f-data);color:var(--text-3);flex:none}
+.bullets{margin:0;padding:8px 16px 14px 50px;background:var(--read);border-top:1px solid var(--edge);display:grid;gap:6px}
+.bullets li{font-size:15px;line-height:1.5;color:var(--text-read)}
+.bullets li::marker{color:var(--amber)}
+mark{background:rgba(255,159,46,.22);color:var(--amber-hi);border-radius:2px;padding:0 2px}
+
+/* full notes */
+.fn{display:grid;gap:12px}
+.fn-tools{display:flex;align-items:center;gap:10px}
+.fn-cur{font:600 14px/1.2 var(--f-label);letter-spacing:.06em;text-transform:uppercase;color:var(--text);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tree{position:absolute;z-index:5;top:0;bottom:0;left:0;width:min(85%,320px);border-radius:0 6px 6px 0;transform:translateX(-102%);display:flex;flex-direction:column}
+.tree-list{overflow:auto;padding:4px 0 8px}
+.tree .folder{min-height:38px;font-size:14px}
+.tree .folder[aria-current]{color:var(--amber-hi);background:linear-gradient(90deg,rgba(255,159,46,.12),transparent 80%)}
+.tree .folder[aria-current] .led{background:radial-gradient(circle at 35% 30%,#fff1d6,var(--amber) 45%,#8a4a08);box-shadow:0 0 6px 1px rgba(255,159,46,.55)}
+.scrim{display:none;position:absolute;inset:0;z-index:4;background:rgba(5,6,8,.72)}
+.drawer-open .tree{transform:none}
+.drawer-open .scrim{display:block}
+.doc{min-width:0;padding:22px 20px 28px;background:var(--read);border:1px solid var(--read-line);border-radius:6px;color:var(--text-read)}
+.doc h1{margin:0;font:700 26px/1.1 var(--f-label);letter-spacing:.03em;text-transform:uppercase;color:#fff;text-wrap:balance}
+.doc .src{display:block;margin:6px 0 18px}
+.doc h2{margin:26px 0 10px;font:600 14px/1 var(--f-label);letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.doc h3{margin:20px 0 8px;font:600 17px/1.2 var(--f-label);letter-spacing:.04em;text-transform:uppercase;color:var(--text)}
+.doc p,.doc li{font-size:16px;line-height:1.6;max-width:66ch}
+.doc p{margin:0 0 10px}
+.doc ul{margin:0 0 10px;padding-left:20px;display:grid;gap:4px}
+.doc li::marker{color:var(--amber)}
+.doc strong{color:#fff;font-weight:600}
+.tbl{overflow-x:auto;margin:6px 0 12px;border:1px solid var(--read-line);border-radius:4px}
+.tbl table{border-collapse:collapse;min-width:520px;width:100%;font-size:15px;line-height:1.45}
+.tbl th{text-align:left;padding:8px 12px;background:var(--panel-lo);font:600 12px/1 var(--f-label);letter-spacing:.1em;text-transform:uppercase;color:var(--text-2)}
+.tbl td{padding:10px 12px;border-top:1px solid var(--read-line);vertical-align:top}
+.confuse{margin-top:8px;padding:14px 16px;border-radius:4px;background:var(--panel-lo);box-shadow:var(--sink)}
+.confuse h3{margin:0 0 8px;font-size:14px;letter-spacing:.1em;color:var(--amber-hi)}
+
+/* ---------- desktop (container ≥ 760px) ---------- */
+@container app (min-width:760px){
+  .toolbar{padding:8px 20px;gap:14px}
+  .brand-sub,.screw,.tabs{display:inline-flex}
+  .lcd{margin-left:0}
+  .seg{font-size:28px}
+  .hintbar{padding-inline:24px}
+  .stage{padding:28px 24px}
+  .tnav{display:none}
+  .card{min-height:320px;padding:36px 40px 24px}
+  .card-q{font-size:28px}
+  .card-a{font-size:24px}
+  .steps{grid-template-columns:repeat(20,1fr)}
+  .pad{height:38px}
+  .tp,.tp--side{flex:0 1 auto}
+  .tp .btn{flex:none;min-width:112px}
+  .transport{justify-content:space-between}
+  .q-face{padding:30px 32px}
+  .q-text{font-size:26px}
+  .opts{grid-template-columns:1fr 1fr}
+  .opt{min-height:76px;font-size:17px}
+  .explain{padding:20px 24px}
+  .mixer-body{flex-direction:row;padding:16px}
+  .strips{flex:1}
+  .master{order:2;flex:0 0 132px;grid-template-columns:1fr;justify-items:center;align-content:start;padding:10px 8px}
+  .master .lcd{justify-self:center;padding:6px 8px}
+  .master .seg{font-size:30px}
+  .master .meter{grid-column:auto;flex-direction:column-reverse;width:18px;height:150px}
+  .m-pct{grid-column:auto}
+  .fn{grid-template-columns:280px minmax(0,1fr);align-items:start}
+  .fn-tools,.scrim{display:none!important}
+  .tree{position:sticky;top:16px;transform:none;width:auto;border-radius:6px;max-height:720px}
+  .doc{padding:36px 48px 44px}
+  .doc h1{font-size:32px}
+  .doc p,.doc li{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- icon sprite (original, stroke-based) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cards" viewBox="0 0 24 24"><rect x="4" y="7" width="12" height="14" rx="1.5"/><path d="M8 4h10.5A1.5 1.5 0 0 1 20 5.5V17"/></symbol>
+  <symbol id="i-quiz" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></symbol>
+  <symbol id="i-quick" viewBox="0 0 24 24"><path d="M9 7h11M9 12h11M9 17h11"/><circle cx="4.5" cy="7" r="1"/><circle cx="4.5" cy="12" r="1"/><circle cx="4.5" cy="17" r="1"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h7"/></symbol>
+  <symbol id="i-prev" viewBox="0 0 24 24"><path d="M17 6l-8 6 8 6z" fill="currentColor"/><path d="M6.5 6v12"/></symbol>
+  <symbol id="i-next" viewBox="0 0 24 24"><path d="M7 6l8 6-8 6z" fill="currentColor"/><path d="M17.5 6v12"/></symbol>
+  <symbol id="i-flip" viewBox="0 0 24 24"><path d="M4.5 11a7.5 7.5 0 0 1 13.4-4.6M19.5 13a7.5 7.5 0 0 1-13.4 4.6"/><path d="M18.5 3v4h-4M5.5 21v-4h4"/></symbol>
+  <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M3 7h3.5c2 0 3 1 4.2 2.8l2.6 4.4C14.5 16 15.5 17 17.5 17H21M3 17h3.5c1.2 0 2-.4 2.7-1.2M15 8.2c.7-.8 1.5-1.2 2.5-1.2H21"/><path d="M18.5 4.5L21 7l-2.5 2.5M18.5 14.5L21 17l-2.5 2.5"/></symbol>
+  <symbol id="i-new" viewBox="0 0 24 24"><rect x="3.5" y="6.5" width="13" height="14" rx="1.5"/><path d="M7.5 3.5h11a2 2 0 0 1 2 2v11M10 10.5v6M7 13.5h6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L20 20"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-brand" viewBox="0 0 34 14"><rect x="0.5" y="1" width="7" height="12" rx="1.2" fill="#ff9f2e" stroke="none"/><rect x="9.2" y="1" width="7" height="12" rx="1.2" fill="#424953" stroke="none"/><rect x="17.9" y="1" width="7" height="12" rx="1.2" fill="#424953" stroke="none"/><rect x="26.6" y="1" width="7" height="12" rx="1.2" fill="#424953" stroke="none"/></symbol>
+</svg>
+
+<header class="pv-head">
+  <h1>Exam Rack · design preview</h1>
+  <p>Static preview, no app logic. Each screen shows a 390px phone on the left and a 1280px desktop on the right (desktop shown at 60% scale). The content is real material from the notes so you can judge readability. Amber means "active", green means "correct", red means "wrong".</p>
+</header>
+
+<!-- 0. TOKENS & STATES -->
+<section class="pv-sec">
+  <h2>00 Tokens &amp; component states <span>design.md has the full table</span></h2>
+  <div class="sheet">
+    <div>
+      <h3>Slate panels</h3>
+      <div class="sw">
+        <div style="--c:#101317">bg<br>#101317</div><div style="--c:#1e232a">panel<br>#1E232A</div><div style="--c:#2a3039">panel-hi<br>#2A3039</div><div style="--c:#171b21">panel-lo<br>#171B21</div>
+        <div style="--c:#13171c">read<br>#13171C</div><div style="--c:#090b0e">edge<br>#090B0E</div><div style="--c:#363c45">pad-a<br>#363C45</div><div style="--c:#2b3038">pad-b<br>#2B3038</div>
+      </div>
+    </div>
+    <div>
+      <h3>Signal colours</h3>
+      <div class="sw">
+        <div style="--c:#ff9f2e">amber<br>#FF9F2E</div><div style="--c:#ffc072">amber-hi<br>#FFC072</div><div style="--c:#ffb04a">lcd-on<br>#FFB04A</div><div style="--c:#0c0905">lcd-bg<br>#0C0905</div>
+        <div style="--c:#41dc74">ok · correct<br>#41DC74</div><div style="--c:#ff5c4f">bad · wrong<br>#FF5C4F</div><div style="--c:#e8ecf0">text-read<br>#E8ECF0</div><div style="--c:#a4aeba">text-2<br>#A4AEBA</div>
+      </div>
+    </div>
+    <div class="specimen">
+      <h3>Type</h3>
+      <span class="l">Barlow Condensed · labels · Mixer Track Routing</span>
+      <span class="b">IBM Plex Sans · reading. Select channels, click the Insert, press <kbd>Ctrl</kbd> + <kbd>L</kbd>.</span>
+      <span class="d">Share Tech Mono · data · § 16 › Three common routing methods</span>
+      <span class="lcd" style="margin:0;justify-self:start"><span class="lcd-label">LCD</span><span class="seg" data-v="07/20"></span></span>
+    </div>
+    <div>
+      <h3>Buttons</h3>
+      <div class="states">
+        <span class="state"><button class="btn">Shuffle</button>default</span>
+        <span class="state"><button class="btn is-hover">Shuffle</button>hover</span>
+        <span class="state"><button class="btn is-pressed">Shuffle</button>pressed</span>
+        <span class="state"><button class="btn is-disabled" disabled>Shuffle</button>disabled</span>
+        <span class="state"><button class="btn" style="outline:2px solid var(--amber-hi);outline-offset:2px">Shuffle</button>focus</span>
+      </div>
+      <div class="states" style="margin-top:12px">
+        <span class="state"><button class="btn btn--amber">Next</button>primary</span>
+        <span class="state"><button class="btn btn--amber is-hover">Next</button>hover</span>
+        <span class="state"><button class="btn btn--amber is-pressed">Next</button>pressed</span>
+        <span class="state"><button class="btn btn--amber is-disabled" disabled>Next</button>disabled</span>
+      </div>
+    </div>
+    <div>
+      <h3>LEDs · toggle · tabs</h3>
+      <div class="states">
+        <span class="state"><span class="led"></span>unlit</span>
+        <span class="state"><span class="led on"></span>amber</span>
+        <span class="state"><span class="led ok"></span>correct</span>
+        <span class="state"><span class="led bad"></span>wrong</span>
+        <span class="state"><button class="btn toggle" aria-pressed="false"><span class="led"></span>Expand all</button>toggle off</span>
+        <span class="state"><button class="btn toggle" aria-pressed="true"><span class="led"></span>Expand all</button>toggle on</span>
+      </div>
+      <div class="states" style="margin-top:12px">
+        <span class="state"><span class="tabs" style="display:inline-flex;margin:0"><button class="tab"><span class="led"></span>Quiz</button><button class="tab is-hover"><span class="led"></span>Quiz</button><button class="tab" aria-current="page"><span class="led"></span>Quiz</button></span>tab: default · hover · current</span>
+      </div>
+    </div>
+    <div>
+      <h3>Step pads</h3>
+      <div class="states">
+        <span class="state"><button class="pad" style="width:34px">3</button>unlit A</span>
+        <span class="state"><button class="pad g2" style="width:34px">8</button>unlit B</span>
+        <span class="state"><button class="pad is-hover" style="width:34px">3</button>hover</span>
+        <span class="state"><button class="pad visited" style="width:34px">5</button>visited</span>
+        <span class="state"><button class="pad current" style="width:34px">7</button>current</span>
+        <span class="state"><button class="pad" style="width:34px;outline:2px solid var(--amber-hi);outline-offset:2px">9</button>focus</span>
+      </div>
+    </div>
+    <div style="grid-column:1/-1">
+      <h3>Option pads</h3>
+      <div class="opts" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr))">
+        <button class="opt"><span class="led"></span><span class="key">A</span><span>Default pad</span><span class="mark"></span></button>
+        <button class="opt is-hover"><span class="led"></span><span class="key">B</span><span>Hover: lifts 1px</span><span class="mark"></span></button>
+        <button class="opt is-pressed"><span class="led"></span><span class="key">C</span><span>Pressed: travels 3px</span><span class="mark"></span></button>
+        <button class="opt is-locked" disabled><span class="led"></span><span class="key">D</span><span>Locked after answering</span><span class="mark"></span></button>
+        <button class="opt is-ok" disabled><span class="led ok"></span><span class="key">B</span><span>Correct answer</span><span class="mark" aria-hidden="true">✓</span></button>
+        <button class="opt is-bad" disabled><span class="led bad"></span><span class="key">A</span><span>Your wrong pick</span><span class="mark" aria-hidden="true">✗</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pv-sec">
+  <h2>01 Flashcards · front <span>card 7 of 20 · pads 1–6 visited</span></h2>
+  <p class="pv-note">The card is a plugin window: brushed title bar, flat reading face. The 20 step pads come in 4 groups of 5 (2 × 10 on phone, 1 × 20 on desktop). The current pad is lit amber and pressed in. Visited pads keep a dim amber core.</p>
+  <div class="pv-row"><div class="pv-col"><span class="pv-cap">390 × phone</span><div class="pv-phone" data-screen="s-fc-front"></div></div><div class="pv-col"><span class="pv-cap">1280 × desktop (60%)</span><div class="pv-dwrap"><div class="pv-desk" data-screen="s-fc-front"></div></div></div></div>
+</section>
+
+<section class="pv-sec">
+  <h2>02 Flashcards · back <span>topic + § source on the back</span></h2>
+  <div class="pv-row"><div class="pv-col"><span class="pv-cap">390 × phone</span><div class="pv-phone" data-screen="s-fc-back"></div></div><div class="pv-col"><span class="pv-cap">1280 × desktop (60%)</span><div class="pv-dwrap"><div class="pv-desk" data-screen="s-fc-back"></div></div></div></div>
+</section>
+
+<section class="pv-sec">
+  <h2>03 Quiz · question <span>topic hidden until answered</span></h2>
+  <p class="pv-note">The four options are thick tactile pads with keycap letters. The hint bar hides the topic while you answer, because "05 Replace" would give the answer away.</p>
+  <div class="pv-row"><div class="pv-col"><span class="pv-cap">390 × phone</span><div class="pv-phone" data-screen="s-q"></div></div><div class="pv-col"><span class="pv-cap">1280 × desktop (60%)</span><div class="pv-dwrap"><div class="pv-desk" data-screen="s-q"></div></div></div></div>
+</section>
+
+<section class="pv-sec">
+  <h2>04 Quiz · answered correct</h2>
+  <div class="pv-row"><div class="pv-col"><span class="pv-cap">390 × phone</span><div class="pv-phone" data-screen="s-q-ok"></div></div><div class="pv-col"><span class="pv-cap">1280 × desktop (60%)</span><div class="pv-dwrap"><div class="pv-desk" data-screen="s-q-ok"></div></div></div></div>
+</section>
+
+<section class="pv-sec">
+  <h2>05 Quiz · answered wrong <span>your pick red ✗, correct pad green ✓</span></h2>
+  <div class="pv-row"><div class="pv-col"><span class="pv-cap">390 × phone</span><div class="pv-phone" data-screen="s-q-bad"></div></div><div class="pv-col"><span class="pv-cap">1280 × desktop (60%)</span><div class="pv-dwrap"><div class="pv-desk" data-screen="s-q-bad"></div></div></div></div>
+</section>
+
+<section class="pv-sec">
+  <h2>06 Results mixer <span>15/20 · 12 topics in this quiz</span></h2>
+  <p class="pv-note">One channel strip for each topic in the quiz. The green meter and the fader cap both sit at that topic's % correct. The master channel shows the total in 7-segment digits. On phone, the master sits on top and the strips scroll sideways inside the panel.</p>
+  <div class="pv-row"><div class="pv-col"><span class="pv-cap">390 × phone</span><div class="pv-phone" data-screen="s-res"></div></div><div class="pv-col"><span class="pv-cap">1280 × desktop (60%)</span><div class="pv-dwrap"><div class="pv-desk" data-screen="s-res"></div></div></div></div>
+</section>
+
+<section class="pv-sec">
+  <h2>07 Quick Notes <span>browser panel · extra phone shows the search state</span></h2>
+  <div class="pv-row"><div class="pv-col"><span class="pv-cap">390 × phone</span><div class="pv-phone" data-screen="s-qn"></div></div><div class="pv-col"><span class="pv-cap">390 × phone · search "ctrl"</span><div class="pv-phone" data-screen="s-qn-search"></div></div><div class="pv-col"><span class="pv-cap">1280 × desktop (60%)</span><div class="pv-dwrap"><div class="pv-desk" data-screen="s-qn"></div></div></div></div>
+</section>
+
+<section class="pv-sec">
+  <h2>08 Full Notes <span>tree + document · extra phone shows the drawer open</span></h2>
+  <div class="pv-row"><div class="pv-col"><span class="pv-cap">390 × phone</span><div class="pv-phone" data-screen="s-fn"></div></div><div class="pv-col"><span class="pv-cap">390 × phone · drawer open</span><div class="pv-phone" data-screen="s-fn" data-state="drawer-open"></div></div><div class="pv-col"><span class="pv-cap">1280 × desktop (60%)</span><div class="pv-dwrap"><div class="pv-desk" data-screen="s-fn"></div></div></div></div>
+</section>
+
+<!-- ================= TEMPLATES ================= -->
+<template id="shell">
+  <div class="app">
+    <header class="toolbar">
+      <span class="screw"></span>
+      <div class="brand"><svg width="34" height="14" aria-hidden="true"><use href="#i-brand"/></svg><span class="brand-name">Exam Rack</span><span class="brand-sub">Sound design exam · FL Studio 2025</span></div>
+      <nav class="tabs" aria-label="Sections">
+        <button class="tab" data-tab="fc"><span class="led"></span>Flashcards</button>
+        <button class="tab" data-tab="quiz"><span class="led"></span>Quiz</button>
+        <button class="tab" data-tab="qn"><span class="led"></span>Quick Notes</button>
+        <button class="tab" data-tab="fn"><span class="led"></span>Full Notes</button>
+      </nav>
+      <span class="lcd"><span class="lcd-label"></span><span class="seg"></span></span>
+      <span class="screw"></span>
+    </header>
+    <div class="hintbar"></div>
+    <main class="stage"></main>
+    <footer class="foot">Unofficial student study aid — not affiliated with Image-Line.</footer>
+    <nav class="tnav" aria-label="Sections">
+      <button class="tnav-btn" data-tab="fc"><span class="bar"></span><svg class="i"><use href="#i-cards"/></svg>Cards</button>
+      <button class="tnav-btn" data-tab="quiz"><span class="bar"></span><svg class="i"><use href="#i-quiz"/></svg>Quiz</button>
+      <button class="tnav-btn" data-tab="qn"><span class="bar"></span><svg class="i"><use href="#i-quick"/></svg>Quick</button>
+      <button class="tnav-btn" data-tab="fn"><span class="bar"></span><svg class="i"><use href="#i-doc"/></svg>Full</button>
+    </nav>
+  </div>
+</template>
+
+<!-- flashcard front -->
+<template id="s-fc-front" data-tab="fc" data-lcd="07/20" data-label="Card">
+  <div data-hint><span class="hint-k">Topic</span><span class="hint-t">16 Mixer Track Routing</span></div>
+  <section class="fc" style="display:grid;gap:14px">
+    <div class="win">
+      <div class="win-bar"><span class="led on"></span><span class="win-title">Flashcard 07</span><span class="win-meta">front</span></div>
+      <button class="card" aria-label="Flip card">
+        <span class="card-eyebrow">Question</span>
+        <span class="card-q">Which shortcut routes the selected Channel Rack channels to the selected Mixer Insert?</span>
+        <span class="card-hint"><svg class="i" style="width:16px;height:16px"><use href="#i-flip"/></svg>Tap the card or press <kbd>Space</kbd> to flip</span>
+      </button>
+    </div>
+    <div class="steps" data-current="7" data-visited="6" role="group" aria-label="Card position"></div>
+    <div class="transport">
+      <div class="tp"><button class="btn" aria-label="Previous card"><svg class="i"><use href="#i-prev"/></svg>Prev</button><button class="btn btn--amber"><svg class="i"><use href="#i-flip"/></svg>Flip</button><button class="btn" aria-label="Next card">Next<svg class="i"><use href="#i-next"/></svg></button></div>
+      <div class="tp tp--side"><button class="btn"><svg class="i"><use href="#i-shuffle"/></svg>Shuffle</button><button class="btn"><svg class="i"><use href="#i-new"/></svg>New set</button></div>
+    </div>
+  </section>
+</template>
+
+<!-- flashcard back -->
+<template id="s-fc-back" data-tab="fc" data-lcd="07/20" data-label="Card">
+  <div data-hint><span class="hint-k">Topic</span><span class="hint-t">16 Mixer Track Routing</span><span class="hint-s">§ 16 › Three common routing methods</span></div>
+  <section class="fc" style="display:grid;gap:14px">
+    <div class="win">
+      <div class="win-bar"><span class="led on"></span><span class="win-title">Flashcard 07</span><span class="win-meta">back</span></div>
+      <button class="card" aria-label="Flip card">
+        <span class="card-eyebrow">Answer</span>
+        <span class="card-a"><kbd>Ctrl</kbd> + <kbd>L</kbd>. Select the channels first, click the target Insert in the Mixer, then press the shortcut.</span>
+        <span class="card-src"><span class="chip">16 · Mixer Track Routing</span><span class="src">§ 16 › Three common routing methods</span></span>
+      </button>
+    </div>
+    <div class="steps" data-current="7" data-visited="6" role="group" aria-label="Card position"></div>
+    <div class="transport">
+      <div class="tp"><button class="btn" aria-label="Previous card"><svg class="i"><use href="#i-prev"/></svg>Prev</button><button class="btn btn--amber"><svg class="i"><use href="#i-flip"/></svg>Flip</button><button class="btn" aria-label="Next card">Next<svg class="i"><use href="#i-next"/></svg></button></div>
+      <div class="tp tp--side"><button class="btn"><svg class="i"><use href="#i-shuffle"/></svg>Shuffle</button><button class="btn"><svg class="i"><use href="#i-new"/></svg>New set</button></div>
+    </div>
+  </section>
+</template>
+
+<!-- quiz question -->
+<template id="s-q" data-tab="quiz" data-lcd="07/20" data-label="Q">
+  <div data-hint><span class="hint-k">Topic</span><span class="hint-s">Hidden until you answer</span></div>
+  <section class="quiz" style="display:grid;gap:14px">
+    <div class="win">
+      <div class="win-bar"><span class="led on"></span><span class="win-title">Question 07 of 20</span><span class="win-meta">pick one</span></div>
+      <div class="q-face"><p class="q-text">You wrote a melody with a placeholder synth. You want your final synth to play the same notes without redrawing them. What do you do?</p></div>
+    </div>
+    <div class="opts">
+      <button class="opt"><span class="led"></span><span class="key">A</span><span>Right-click the channel → Insert &gt; the new synth</span><span class="mark"></span></button>
+      <button class="opt"><span class="led"></span><span class="key">B</span><span>Right-click the channel → Replace &gt; the new synth</span><span class="mark"></span></button>
+      <button class="opt"><span class="led"></span><span class="key">C</span><span>Right-click the channel → Load Sample with the synth</span><span class="mark"></span></button>
+      <button class="opt"><span class="led"></span><span class="key">D</span><span>Drag the new synth from the Browser into the Rack</span><span class="mark"></span></button>
+    </div>
+  </section>
+</template>
+
+<!-- quiz correct -->
+<template id="s-q-ok" data-tab="quiz" data-lcd="07/20" data-label="Q">
+  <div data-hint><span class="hint-k">Topic</span><span class="hint-t">05 Replace</span><span class="hint-s">§ 5 › How to use</span></div>
+  <section class="quiz" style="display:grid;gap:14px">
+    <div class="win">
+      <div class="win-bar"><span class="led on"></span><span class="win-title">Question 07 of 20</span><span class="win-meta">answered</span></div>
+      <div class="q-face"><p class="q-text">You wrote a melody with a placeholder synth. You want your final synth to play the same notes without redrawing them. What do you do?</p></div>
+    </div>
+    <div class="opts">
+      <button class="opt is-locked" disabled><span class="led"></span><span class="key">A</span><span>Right-click the channel → Insert &gt; the new synth</span><span class="mark"></span></button>
+      <button class="opt is-ok" disabled><span class="led ok"></span><span class="key">B</span><span>Right-click the channel → Replace &gt; the new synth</span><span class="mark" aria-hidden="true">✓</span><span class="sr">Your answer. Correct.</span></button>
+      <button class="opt is-locked" disabled><span class="led"></span><span class="key">C</span><span>Right-click the channel → Load Sample with the synth</span><span class="mark"></span></button>
+      <button class="opt is-locked" disabled><span class="led"></span><span class="key">D</span><span>Drag the new synth from the Browser into the Rack</span><span class="mark"></span></button>
+    </div>
+    <div class="explain" role="status">
+      <div class="ex-head ok"><span class="led ok"></span>✓ Correct</div>
+      <p><strong>Replace</strong> swaps the instrument in an existing channel and keeps all notes and pattern data. Insert would add a new, empty channel above the selected one.</p>
+      <div class="ex-foot"><span class="src">§ 5 Replace › How to use</span><button class="btn btn--amber">Next<svg class="i"><use href="#i-next"/></svg></button></div>
+    </div>
+  </section>
+</template>
+
+<!-- quiz wrong -->
+<template id="s-q-bad" data-tab="quiz" data-lcd="07/20" data-label="Q">
+  <div data-hint><span class="hint-k">Topic</span><span class="hint-t">05 Replace</span><span class="hint-s">§ 5 › How to use</span></div>
+  <section class="quiz" style="display:grid;gap:14px">
+    <div class="win">
+      <div class="win-bar"><span class="led on"></span><span class="win-title">Question 07 of 20</span><span class="win-meta">answered</span></div>
+      <div class="q-face"><p class="q-text">You wrote a melody with a placeholder synth. You want your final synth to play the same notes without redrawing them. What do you do?</p></div>
+    </div>
+    <div class="opts">
+      <button class="opt is-bad" disabled><span class="led bad"></span><span class="key">A</span><span>Right-click the channel → Insert &gt; the new synth</span><span class="mark" aria-hidden="true">✗</span><span class="sr">Your answer. Wrong.</span></button>
+      <button class="opt is-ok" disabled><span class="led ok"></span><span class="key">B</span><span>Right-click the channel → Replace &gt; the new synth</span><span class="mark" aria-hidden="true">✓</span><span class="sr">Correct answer.</span></button>
+      <button class="opt is-locked" disabled><span class="led"></span><span class="key">C</span><span>Right-click the channel → Load Sample with the synth</span><span class="mark"></span></button>
+      <button class="opt is-locked" disabled><span class="led"></span><span class="key">D</span><span>Drag the new synth from the Browser into the Rack</span><span class="mark"></span></button>
+    </div>
+    <div class="explain" role="status">
+      <div class="ex-head bad"><span class="led bad"></span>✗ Not quite. The answer is B</div>
+      <p><strong>Replace</strong> swaps the instrument in an existing channel and keeps all notes and pattern data. Insert would add a new, empty channel above the selected one.</p>
+      <div class="ex-foot"><span class="src">§ 5 Replace › How to use</span><button class="btn btn--amber">Next<svg class="i"><use href="#i-next"/></svg></button></div>
+    </div>
+  </section>
+</template>
+
+<!-- results -->
+<template id="s-res" data-tab="quiz" data-lcd="15/20" data-label="Score">
+  <div data-hint><span class="hint-k">Results</span><span class="hint-t">15 of 20 correct</span><span class="hint-s">5 missed questions below</span></div>
+  <section class="results">
+    <div class="win">
+      <div class="win-bar"><span class="led on"></span><span class="win-title">Mixer · Results by topic</span><span class="win-meta">12 topics</span></div>
+      <div class="mixer-body">
+        <div class="master" data-pct="75">
+          <span class="m-label">MASTER</span>
+          <span class="lcd"><span class="seg" data-v="15/20" data-aria="15 out of 20"></span></span>
+          <div class="meter" data-n="16"></div>
+          <span class="m-pct">75% correct</span>
+        </div>
+        <div class="strips" data-strips></div>
+      </div>
+    </div>
+    <h2 class="h2">Missed questions · 5</h2>
+    <ol class="missed">
+      <li class="miss">
+        <p class="miss-q">You wrote a melody with a placeholder synth. You want your final synth to play the same notes without redrawing them. What do you do?</p>
+        <div class="miss-row bad"><b aria-hidden="true">✗</b><span><small>Your answer</small>Right-click the channel → Insert &gt; the new synth</span></div>
+        <div class="miss-row ok"><b aria-hidden="true">✓</b><span><small>Correct answer</small>Right-click the channel → Replace &gt; the new synth</span></div>
+        <p>Replace swaps the instrument in an existing channel and keeps all notes and pattern data. Insert would add a new, empty channel. <span class="src">§ 5 Replace</span></p>
+      </li>
+      <li class="miss">
+        <p class="miss-q">After recording automation by turning a knob, what does FL Studio create first?</p>
+        <div class="miss-row bad"><b aria-hidden="true">✗</b><span><small>Your answer</small>An Automation Clip placed on the Playlist</span></div>
+        <div class="miss-row ok"><b aria-hidden="true">✓</b><span><small>Correct answer</small>Event Data you can edit in the Event Editor</span></div>
+        <p>Recorded automation becomes Event Data. You can then convert it with Edit › Turn into automation clip. <span class="src">§ 24 › A. Record automation</span></p>
+      </li>
+    </ol>
+    <div style="display:flex;justify-content:flex-end"><button class="btn btn--amber"><svg class="i"><use href="#i-new"/></svg>New quiz</button></div>
+  </section>
+</template>
+
+<!-- quick notes -->
+<template id="s-qn" data-tab="qn" data-lcd="27" data-label="Topics">
+  <div data-hint><span class="hint-k">Quick notes</span><span class="hint-t">Last-minute read</span><span class="hint-s">3–7 bullets per topic</span></div>
+  <section class="qn">
+    <div class="win">
+      <div class="win-bar"><span class="led on"></span><span class="win-title">Quick Notes · Browser</span><span class="win-meta">27 folders</span></div>
+      <div class="qn-tools">
+        <label class="search"><svg class="i"><use href="#i-search"/></svg><span class="sr">Search all notes</span><input type="search" placeholder="Search all notes" id="qn-search"></label>
+        <button class="btn toggle" aria-pressed="false"><span class="led"></span>Expand all</button>
+      </div>
+      <ul class="folders" data-folders data-open="16,17"></ul>
+    </div>
+  </section>
+</template>
+
+<template id="s-qn-search" data-tab="qn" data-lcd="03" data-label="Hits">
+  <div data-hint><span class="hint-k">Search</span><span class="hint-t">"ctrl"</span><span class="hint-s">3 matches in 3 folders</span></div>
+  <section class="qn">
+    <div class="win">
+      <div class="win-bar"><span class="led on"></span><span class="win-title">Quick Notes · Browser</span><span class="win-meta">filtered</span></div>
+      <div class="qn-tools">
+        <label class="search" style="box-shadow:var(--sink),0 0 0 2px var(--amber-hi)"><svg class="i"><use href="#i-search"/></svg><span class="sr">Search all notes</span><input type="search" value="ctrl" id="qn-search-2"></label>
+      </div>
+      <div class="qn-count">3 matches in 3 folders</div>
+      <ul class="folders" data-folders data-query="ctrl"></ul>
+    </div>
+  </section>
+</template>
+
+<!-- full notes -->
+<template id="s-fn" data-tab="fn" data-lcd="16" data-label="Topic">
+  <div data-hint><span class="hint-k">Topic</span><span class="hint-t">16 Mixer Track Routing</span><span class="hint-s">§ 16 Mixer Track Routing</span></div>
+  <section class="fn">
+    <div class="fn-tools"><button class="btn" aria-expanded="false"><svg class="i"><use href="#i-menu"/></svg>Topics</button><span class="fn-cur">16 · Mixer Track Routing</span></div>
+    <div class="scrim"></div>
+    <aside class="win tree" aria-label="Topics">
+      <div class="win-bar"><span class="led on"></span><span class="win-title">Topics</span><span class="win-meta">27 + glossary</span></div>
+      <div class="tree-list" data-tree data-current="16"></div>
+    </aside>
+    <article class="doc">
+      <h1>16 · Mixer Track Routing</h1>
+      <span class="src">§ 16 Mixer Track Routing</span>
+      <h2>Full notes</h2>
+      <p><strong>By default, every instrument in the Channel Rack outputs directly to the Master track.</strong> To control each sound on its own, route each instrument to its own <strong>Insert track</strong> in the Mixer.</p>
+      <h3>Three common routing methods</h3>
+      <div class="tbl"><table>
+        <thead><tr><th>Method</th><th>Steps</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Channel settings panel</strong></td><td>Left-click the channel → find the <strong>FX / TRK field</strong> → type or drag to the target Insert number</td></tr>
+          <tr><td><strong>Shortcut <kbd>Ctrl</kbd> + <kbd>L</kbd></strong></td><td>Select one or more channels → click the target Insert in the Mixer → press <kbd>Ctrl</kbd> + <kbd>L</kbd></td></tr>
+          <tr><td><strong>Right-click routing</strong></td><td>Select the target Insert → right-click the channel → <strong>Route to this track</strong></td></tr>
+        </tbody>
+      </table></div>
+      <h3>2025 notes</h3>
+      <ul>
+        <li><strong>Right-click an empty plugin slot</strong> in the Mixer to add a plugin.</li>
+        <li><strong>Playback tracking now defaults to the Mixer.</strong></li>
+      </ul>
+      <p><strong>Best practice:</strong> route at least Kick, Snare, Hi-hat, Bass, melody and vocals to separate Inserts.</p>
+      <div class="confuse">
+        <h3>Common confusions</h3>
+        <ul>
+          <li>The default output is the <strong>Master</strong>, not an Insert.</li>
+          <li><kbd>Ctrl</kbd> + <kbd>L</kbd> order: channels first, then the target Insert, then the shortcut.</li>
+          <li>The <strong>FX / TRK field</strong> is in the channel settings panel, not in the Mixer.</li>
+        </ul>
+      </div>
+      <h2>Quick notes</h2>
+      <ul>
+        <li>Default: every instrument → Master track</li>
+        <li>Select channels → click Insert → <kbd>Ctrl</kbd> + <kbd>L</kbd></li>
+        <li>Select Insert → right-click channel → Route to this track</li>
+      </ul>
+    </article>
+  </section>
+</template>
+
+<script>
+// Preview-only rendering helpers (no app logic): 7-segment digits, pads, meters, topic lists.
+const TOPICS=["FL Studio Interface","Channel Rack","Sampler Channels","Insert","Replace","Browser Panel","Piano Roll","Chords & Melodies","Piano Roll Tools (Basic)","Notes","Piano Roll Tools (Advanced)","Tempo Tapper","Templates","Make Some Noise","Packs and Sounds","Mixer Track Routing","Mixer Track Options","Effects Rack","Mixer Panel Tools","Playlist","Patterns To Songs","Playlist Tools","Audio Recording","Recording & Editing Automation","Mixing & Effects","Plugins","Music Theory & Terminology"];
+const COUNTS=[6,5,5,4,3,6,5,4,4,5,4,4,4,6,4,6,5,5,4,4,4,5,5,5,6,6,7];
+const BULLETS={
+  1:["<kbd>F5</kbd> Playlist: the song timeline","<kbd>F6</kbd> Channel Rack: instruments, samples, drum patterns","<kbd>F7</kbd> Piano Roll: melodies, chords, basslines","<kbd>F9</kbd> Mixer: routing, volume, effects","<kbd>Alt</kbd> + <kbd>F8</kbd> Browser: samples, presets, plugins","<kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>H</kbd> resets the window layout"],
+  10:["<kbd>Shift</kbd> + <kbd>↑/↓</kbd> = transpose one semitone","Octave: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>↑/↓</kbd> (§ 10) vs <kbd>Ctrl</kbd> + <kbd>↑/↓</kbd> (§ 27) ⚠","Velocity: drag bars in the velocity pane; <kbd>Alt</kbd> + <kbd>R</kbd> randomises","Slide notes = pitch glides, essential for 808 basslines","Right-click a single note → Note properties"],
+  16:["Default: every instrument → Master track","Route each sound to its own Insert to control it independently","Channel settings → FX / TRK field → Insert number","Select channels → click Insert → <kbd>Ctrl</kbd> + <kbd>L</kbd>","Select Insert → right-click channel → Route to this track","Route at least Kick, Snare, Hi-hat, Bass, melody, vocals separately"],
+  17:["Each Insert has its own volume, pan, effect chain, routing","Rename: <kbd>F2</kbd> or right-click label → Rename","Colour: right-click label → Change color","Green button = mute; right-click = solo (others muted)","Top knobs = pan &amp; stereo width"]
+};
+const STRIPS=[[1,"Interface",2,2],[5,"Replace",0,1],[7,"Piano Roll",1,2],[10,"Notes",1,1],[16,"Routing",2,3],[18,"Effects Rack",1,1],[20,"Playlist",1,1],[23,"Recording",2,2],[24,"Automation",1,2],[25,"Mixing",1,2],[26,"Plugins",1,1],[27,"Terms",2,2]];
+const icon=(id,c)=>`<svg class="i ${c}"><use href="#${id}"/></svg>`;
+
+// 7-segment digits: lit + ghost segments
+const SEG={a:[3,.6,8,2],b:[11.4,3,2,8],c:[11.4,13,2,8],d:[3,21.4,8,2],e:[.6,13,2,8],f:[.6,3,2,8],g:[3,11,8,2]};
+const MAP={0:"abcdef",1:"bc",2:"abged",3:"abgcd",4:"fgbc",5:"afgcd",6:"afgedc",7:"abc",8:"abcdefg",9:"abcdfg","-":"g"," ":""};
+function digit(ch){
+  if(ch==="/")return '<svg viewBox="0 0 9 24" aria-hidden="true"><path d="M7.5 1.5L1.5 22.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>';
+  const on=MAP[ch]??"";
+  return '<svg viewBox="0 0 16 24" aria-hidden="true"><g transform="skewX(-6) translate(2.4 0)">'+Object.entries(SEG).map(([k,[x,y,w,h]])=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="1" class="${on.includes(k)?"on":"off"}"/>`).join("")+"</g></svg>";
+}
+
+function build(host){
+  const scr=document.getElementById(host.dataset.screen);
+  const shell=document.getElementById("shell").content.cloneNode(true);
+  const app=shell.querySelector(".app");
+  const body=scr.content.cloneNode(true);
+  const hint=body.querySelector("[data-hint]");
+  app.querySelector(".hintbar").append(...hint.childNodes);hint.remove();
+  app.querySelector(".stage").append(body);
+  app.querySelectorAll(`[data-tab="${scr.dataset.tab}"]`).forEach(b=>b.setAttribute("aria-current","page"));
+  app.querySelector(".lcd-label").textContent=scr.dataset.label;
+  app.querySelector(".toolbar .seg").dataset.v=scr.dataset.lcd;
+  if(host.dataset.state)app.classList.add(host.dataset.state);
+  host.append(shell);
+}
+document.querySelectorAll("[data-screen]").forEach(build);
+
+document.querySelectorAll(".steps").forEach(s=>{
+  const cur=+s.dataset.current,vis=+s.dataset.visited;let h="";
+  for(let i=1;i<=20;i++){
+    const g=Math.ceil(i/5)%2?"":" g2",st=i===cur?" current":i<=vis?" visited":"";
+    h+=`<button class="pad${g}${st}" aria-label="Card ${i}${i===cur?", current":i<=vis?", seen":""}"${i===cur?' aria-current="step"':""}>${i}</button>`;
+  }
+  s.innerHTML=h;
+});
+
+document.querySelectorAll("[data-strips]").forEach(el=>{
+  el.innerHTML=STRIPS.map(([n,name,c,t])=>{const p=Math.round(c/t*100);return `<div class="strip" data-pct="${p}" role="img" aria-label="Topic ${n} ${name}: ${c} of ${t} correct"><span class="s-num">${String(n).padStart(2,"0")}</span><div class="s-meter"><div class="meter"></div><div class="fader"><span class="cap"></span></div></div><span class="s-score">${c}/${t}</span><span class="s-name">${name}</span></div>`}).join("");
+});
+document.querySelectorAll("[data-pct]").forEach(st=>{
+  const p=+st.dataset.pct,m=st.querySelector(".meter"),n=+(m.dataset.n||12);
+  m.innerHTML=Array.from({length:n},(_,i)=>`<i class="${(i+1)/n*100<=p+.01?"on":""}"></i>`).join("");
+  const cap=st.querySelector(".cap");if(cap)cap.style.setProperty("--p",p+"%");
+});
+
+document.querySelectorAll("[data-folders]").forEach(ul=>{
+  const open=(ul.dataset.open||"").split(",").map(Number),q=ul.dataset.query;
+  ul.innerHTML=TOPICS.map((t,i)=>{
+    const n=i+1;let items=BULLETS[n]||[];
+    if(q){items=items.filter(b=>b.toLowerCase().includes(q));if(!items.length)return"";items=items.map(b=>b.replace(/(<kbd>)(Ctrl)(<\/kbd>)/,"$1<mark>$2</mark>$3"))}
+    const isOpen=q||open.includes(n);
+    return `<li><button class="folder" aria-expanded="${isOpen}">${icon("i-chev","chev")}${icon("i-folder","fic")}<span class="f-num">${String(n).padStart(2,"0")}</span><span class="f-name">${t}</span><span class="f-count">${q?items.length:COUNTS[i]}</span></button>${isOpen?`<ul class="bullets">${items.map(b=>`<li>${b}</li>`).join("")}</ul>`:""}</li>`;
+  }).join("");
+});
+
+document.querySelectorAll("[data-tree]").forEach(el=>{
+  const cur=+el.dataset.current;
+  el.innerHTML=TOPICS.map((t,i)=>`<button class="folder"${i+1===cur?' aria-current="true"':""}><span class="led"></span><span class="f-num">${String(i+1).padStart(2,"0")}</span><span class="f-name">${t}</span></button>`).join("")+`<button class="folder"><span class="led"></span><span class="f-num">A–Z</span><span class="f-name">Glossary</span></button>`;
+});
+
+document.querySelectorAll(".seg[data-v]").forEach(el=>{
+  el.setAttribute("role","img");el.setAttribute("aria-label",el.dataset.aria||el.dataset.v);
+  el.innerHTML=[...el.dataset.v].map(digit).join("");
+});
+
+// size the scaled desktop frames
+const fit=()=>document.querySelectorAll(".pv-dwrap").forEach(w=>{const d=w.firstElementChild;w.style.height=d.offsetHeight*parseFloat(getComputedStyle(w).getPropertyValue("--k"))+"px"});
+new ResizeObserver(fit).observe(document.body);document.fonts.ready.then(fit);fit();
+</script>
+</body>
+</html>

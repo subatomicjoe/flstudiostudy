@@ -1,0 +1,1542 @@
+[
+ {
+  "id": "mcq-01-1",
+  "topic": "1 FL Studio Interface",
+  "question": "Which shortcut opens the Mixer?",
+  "options": [
+   "F9",
+   "F8",
+   "F7",
+   "F5"
+  ],
+  "answer": 0,
+  "explanation": "F9 opens the Mixer for routing, volume and effects. F8 is tempting, but plain F8 opens the Plugin Picker.",
+  "source": "§ 1 FL Studio Interface > Five core windows"
+ },
+ {
+  "id": "mcq-01-2",
+  "topic": "1 FL Studio Interface",
+  "question": "You need to arrange patterns, audio clips and automation along the song timeline. Which window do you open?",
+  "options": [
+   "Channel Rack (F6)",
+   "Playlist (F5)",
+   "Piano Roll (F7)",
+   "Mixer (F9)"
+  ],
+  "answer": 1,
+  "explanation": "The Playlist is the song timeline. The Channel Rack holds instruments and patterns, but you don't arrange the song there.",
+  "source": "§ 1 FL Studio Interface > Five core windows"
+ },
+ {
+  "id": "mcq-01-3",
+  "topic": "1 FL Studio Interface",
+  "question": "Which shortcut opens the Browser?",
+  "options": [
+   "F8",
+   "F6",
+   "Alt/Opt + F8",
+   "Alt/Opt + F9"
+  ],
+  "answer": 2,
+  "explanation": "Alt/Opt + F8 opens the Browser. Plain F8 opens the Plugin Picker instead.",
+  "source": "§ 1 FL Studio Interface > Five core windows"
+ },
+ {
+  "id": "mcq-01-4",
+  "topic": "1 FL Studio Interface",
+  "question": "Your windows are scattered and you want the default layout back. What do you press?",
+  "options": [
+   "Ctrl + L",
+   "Alt + V",
+   "Alt + U",
+   "Shift + Ctrl + H"
+  ],
+  "answer": 3,
+  "explanation": "Shift + Ctrl + H resets the window layout. Ctrl + L routes channels to a Mixer Insert and doesn't touch the layout.",
+  "source": "§ 1 FL Studio Interface > Beginner tip"
+ },
+ {
+  "id": "mcq-02-1",
+  "topic": "2 Channel Rack",
+  "question": "What is each row of the Channel Rack?",
+  "options": [
+   "A Channel: one instrument or sample",
+   "A Mixer Insert with its own effects",
+   "A Pattern Clip placed on the timeline",
+   "An effect slot from the Effects Rack"
+  ],
+  "answer": 0,
+  "explanation": "Each row is a Channel, one instrument or sample. Mixer Inserts live in the Mixer, not the Channel Rack.",
+  "source": "§ 2 Channel Rack"
+ },
+ {
+  "id": "mcq-02-2",
+  "topic": "2 Channel Rack",
+  "question": "How do you open a channel's detailed settings panel?",
+  "options": [
+   "Right-click the green light",
+   "Left-click the channel name",
+   "Right-click and choose Insert >",
+   "Right-click and choose Load Sample"
+  ],
+  "answer": 1,
+  "explanation": "Left-clicking the channel name opens its settings. Right-clicking the green light solos the channel instead.",
+  "source": "§ 2 Channel Rack > Key operations"
+ },
+ {
+  "id": "mcq-02-3",
+  "topic": "2 Channel Rack",
+  "question": "You want to hear only the hi-hat channel. What do you do in the Channel Rack?",
+  "options": [
+   "Left-click its green light",
+   "Left-click its channel name",
+   "Right-click its green light",
+   "Right-click it and choose Replace >"
+  ],
+  "answer": 2,
+  "explanation": "Right-clicking the green light solos the channel. A left-click on the light mutes it, the opposite of what you want.",
+  "source": "§ 2 Channel Rack > Key operations"
+ },
+ {
+  "id": "mcq-02-4",
+  "topic": "2 Channel Rack",
+  "question": "Where do you quickly program drum patterns in the Channel Rack?",
+  "options": [
+   "In the velocity pane at the bottom",
+   "In the channel's FX / TRK field",
+   "In the Event Editor for the channel",
+   "In the Step Sequencer on the right side"
+  ],
+  "answer": 3,
+  "explanation": "The Step Sequencer on the right of the Channel Rack is for quick drum patterns. The velocity pane is in the Piano Roll and only sets how hard notes play.",
+  "source": "§ 2 Channel Rack"
+ },
+ {
+  "id": "mcq-03-1",
+  "topic": "3 Sampler Channels",
+  "question": "You drag a WAV file into the Channel Rack. What does FL Studio create?",
+  "options": [
+   "A Sampler Channel",
+   "An Audio Clip",
+   "An Automation Clip",
+   "A Mixer Insert"
+  ],
+  "answer": 0,
+  "explanation": "Dragging audio into the Channel Rack automatically creates a Sampler Channel. Audio Clips are what appear in the Playlist after recording.",
+  "source": "§ 3 Sampler Channels"
+ },
+ {
+  "id": "mcq-03-2",
+  "topic": "3 Sampler Channels",
+  "question": "How do you swap the audio file inside an existing Sampler channel?",
+  "options": [
+   "Right-click it and choose Replace >",
+   "Right-click it and choose Load Sample",
+   "Right-click it and choose Insert >",
+   "Right-click it and choose Piano roll"
+  ],
+  "answer": 1,
+  "explanation": "Load Sample replaces the audio in a Sampler. Replace > swaps the whole instrument, not just the sample.",
+  "source": "§ 3 Sampler Channels > Key operations"
+ },
+ {
+  "id": "mcq-03-3",
+  "topic": "3 Sampler Channels",
+  "question": "You want to play a vocal chop at different pitches. What does the source suggest?",
+  "options": [
+   "Offset its notes across a chord with Strumize",
+   "Show other channels' pitches with Ghost Channels",
+   "Play it chromatically from its Piano Roll",
+   "Retune it by tapping in the Tempo Tapper"
+  ],
+  "answer": 2,
+  "explanation": "A Sampler can be played chromatically from its Piano Roll. Strumize only offsets the notes of a chord into a strum.",
+  "source": "§ 3 Sampler Channels > Key operations"
+ },
+ {
+  "id": "mcq-03-4",
+  "topic": "3 Sampler Channels",
+  "question": "Which controls does the Sampler's settings panel offer?",
+  "options": [
+   "Scale, key and chord type",
+   "Input, arm and record filter",
+   "Pan, fader and stereo width",
+   "Envelope, looping and pitch"
+  ],
+  "answer": 3,
+  "explanation": "The Sampler panel has envelope, looping and pitch controls. Pan, fader and stereo width belong to a Mixer strip.",
+  "source": "§ 3 Sampler Channels > Key operations"
+ },
+ {
+  "id": "mcq-04-1",
+  "topic": "4 Insert",
+  "question": "What does Insert do in the Channel Rack?",
+  "options": [
+   "Adds a new instrument channel above the selected one",
+   "Swaps the selected channel's instrument but keeps its notes",
+   "Routes the selected channel to the chosen Mixer Insert",
+   "Loads a new audio file into the selected Sampler"
+  ],
+  "answer": 0,
+  "explanation": "Insert adds a new channel above the selected one and leaves existing channels alone. Swapping the instrument while keeping notes is Replace.",
+  "source": "§ 4 Insert"
+ },
+ {
+  "id": "mcq-04-2",
+  "topic": "4 Insert",
+  "question": "Where does a channel created with Insert appear?",
+  "options": [
+   "At the bottom of the Channel Rack",
+   "Above the currently selected channel",
+   "Below the currently selected channel",
+   "On a new Mixer Insert track"
+  ],
+  "answer": 1,
+  "explanation": "The source says Insert adds the channel above the selected one. It doesn't go below it or to the bottom of the rack.",
+  "source": "§ 4 Insert"
+ },
+ {
+  "id": "mcq-04-3",
+  "topic": "4 Insert",
+  "question": "The instrument you want isn't in the Insert > list. What do you click?",
+  "options": [
+   "Load Sample",
+   "Route to this track",
+   "More...",
+   "Create automation clip"
+  ],
+  "answer": 2,
+  "explanation": "More... opens the full plugin picker, where you double-click to add. Load Sample only loads audio into a Sampler.",
+  "source": "§ 4 Insert > How to use"
+ },
+ {
+  "id": "mcq-04-4",
+  "topic": "4 Insert",
+  "question": "Your channels are all set up and you want one more synth without touching them. Which command fits?",
+  "options": [
+   "Replace >",
+   "Load Sample",
+   "Route to this track",
+   "Insert >"
+  ],
+  "answer": 3,
+  "explanation": "Insert adds a channel without affecting existing ones. Replace would change an existing channel's instrument.",
+  "source": "§ 4 Insert"
+ },
+ {
+  "id": "mcq-05-1",
+  "topic": "5 Replace",
+  "question": "What does Replace keep when it swaps a channel's instrument?",
+  "options": [
+   "All notes and pattern data",
+   "The old instrument's settings",
+   "The channel's audio file only",
+   "Nothing; the channel is cleared"
+  ],
+  "answer": 0,
+  "explanation": "Replace keeps all notes and pattern data. The old instrument is what gets swapped out.",
+  "source": "§ 5 Replace"
+ },
+ {
+  "id": "mcq-05-2",
+  "topic": "5 Replace",
+  "question": "Which statement about Replace is true?",
+  "options": [
+   "It adds a channel above the selected one",
+   "It changes an existing channel",
+   "It moves the channel to a new Insert",
+   "It deletes the pattern so you redraw it"
+  ],
+  "answer": 1,
+  "explanation": "Replace works on an existing channel and keeps its notes. Adding a channel above the selected one is Insert.",
+  "source": "§ 5 Replace"
+ },
+ {
+  "id": "mcq-05-3",
+  "topic": "5 Replace",
+  "question": "You wrote a melody with a placeholder synth and want your final synth to play the same notes. What do you do?",
+  "options": [
+   "Right-click the channel → Insert > the new synth",
+   "Right-click the channel → Load Sample with the synth",
+   "Right-click the channel → Replace > the new synth",
+   "Drag the new synth from the Browser into the Rack"
+  ],
+  "answer": 2,
+  "explanation": "Replace swaps the instrument and keeps all notes and pattern data. Insert would add a new, empty channel above the selected one.",
+  "source": "§ 5 Replace > How to use"
+ },
+ {
+  "id": "mcq-05-4",
+  "topic": "5 Replace",
+  "question": "You programmed a drum pattern with a temporary kick and found a better kick. What does the source recommend to avoid redrawing the rhythm?",
+  "options": [
+   "Insert a new channel above the kick",
+   "Chop the pattern clip in the Playlist",
+   "Draw the rhythm again with Paint",
+   "Replace the kick channel's instrument"
+  ],
+  "answer": 3,
+  "explanation": "The source's use case is to Replace the temporary kick, so the rhythm stays. Insert would create a new empty channel you'd have to program again.",
+  "source": "§ 5 Replace > Typical use case"
+ },
+ {
+  "id": "mcq-06-1",
+  "topic": "6 Browser Panel",
+  "question": "How does the source describe the Browser?",
+  "options": [
+   "A single entry point for all media",
+   "The song timeline for all clips",
+   "The hub for routing and effects",
+   "The editor for melodies and chords"
+  ],
+  "answer": 0,
+  "explanation": "The Browser works like a file explorer for all media. The song timeline is the Playlist.",
+  "source": "§ 6 Browser Panel"
+ },
+ {
+  "id": "mcq-06-2",
+  "topic": "6 Browser Panel",
+  "question": "Which Browser section holds the stock samples, loops and presets that come with FL Studio?",
+  "options": [
+   "Sounds",
+   "Packs",
+   "Plugin database",
+   "Current project"
+  ],
+  "answer": 1,
+  "explanation": "Packs is the stock content. Sounds is extra FL Cloud content that depends on your edition.",
+  "source": "§ 6 Browser Panel > Main sections"
+ },
+ {
+  "id": "mcq-06-3",
+  "topic": "6 Browser Panel",
+  "question": "Which Browser section lists all installed instruments and effects by category?",
+  "options": [
+   "Packs",
+   "Current project",
+   "Plugin database",
+   "Sounds"
+  ],
+  "answer": 2,
+  "explanation": "The Plugin database lists installed plugins by category and is linked to the Plugin Picker. Packs holds samples and presets, not installed plugins.",
+  "source": "§ 6 Browser Panel > Main sections"
+ },
+ {
+  "id": "mcq-06-4",
+  "topic": "6 Browser Panel",
+  "question": "Where can you drag an item from the Browser?",
+  "options": [
+   "Only into the Channel Rack",
+   "Only into the Playlist",
+   "Only into the Plugin Picker",
+   "Channel Rack, Playlist or Mixer"
+  ],
+  "answer": 3,
+  "explanation": "The source says you can drag from the Browser into the Channel Rack, the Playlist or the Mixer. It isn't limited to the Channel Rack.",
+  "source": "§ 6 Browser Panel > How to use"
+ },
+ {
+  "id": "mcq-07-1",
+  "topic": "7 Piano Roll",
+  "question": "Which shortcut opens the Piano Roll window?",
+  "options": [
+   "F7",
+   "F6",
+   "F5",
+   "F9"
+  ],
+  "answer": 0,
+  "explanation": "F7 opens the Piano Roll. F6 is the Channel Rack, where you pick the channel whose notes you edit.",
+  "source": "§ 7 Piano Roll"
+ },
+ {
+  "id": "mcq-07-2",
+  "topic": "7 Piano Roll",
+  "question": "You want a fast hi-hat roll as one continuous stream of notes. Which tool is described for this?",
+  "options": [
+   "Slice",
+   "Paint (brush)",
+   "Select",
+   "Delete (eraser)"
+  ],
+  "answer": 1,
+  "explanation": "Paint draws continuous streams of notes, great for hi-hat rolls. Slice cuts one note into two instead.",
+  "source": "§ 7 Piano Roll > Essential tool shortcuts"
+ },
+ {
+  "id": "mcq-07-3",
+  "topic": "7 Piano Roll",
+  "question": "What does the Slice tool (C) do in the Piano Roll?",
+  "options": [
+   "Removes every note you drag across",
+   "Box-selects notes for batch edits",
+   "Cuts a note into two at the clicked point",
+   "Slices clips in the Playlist into pieces"
+  ],
+  "answer": 2,
+  "explanation": "Slice cuts one note in two. Slicing clips in the Playlist is the separate Chop command.",
+  "source": "§ 7 Piano Roll > Essential tool shortcuts"
+ },
+ {
+  "id": "mcq-07-4",
+  "topic": "7 Piano Roll",
+  "question": "Which tool and shortcut do you use to box-select notes for a batch edit?",
+  "options": [
+   "Slice (C)",
+   "Delete (D)",
+   "Stamp (Alt + C)",
+   "Select (E)"
+  ],
+  "answer": 3,
+  "explanation": "Select (E) box-selects or click-selects notes for batch edits. Delete (D) removes the notes you drag over.",
+  "source": "§ 7 Piano Roll > Essential tool shortcuts"
+ },
+ {
+  "id": "mcq-08-1",
+  "topic": "8 Chords & Melodies",
+  "question": "How do you place a full chord instantly in the Piano Roll?",
+  "options": [
+   "Stamp tool: pick a chord type, click a root",
+   "Strumize: offset a chord's notes into a strum",
+   "Chop chords: turn a chord into a stream",
+   "Riff Machine: generate motif variations"
+  ],
+  "answer": 0,
+  "explanation": "The Stamp tool places a whole chord at the root note you click. Strumize only offsets the notes of an existing chord.",
+  "source": "§ 8 Chords & Melodies > Stamp tool"
+ },
+ {
+  "id": "mcq-08-2",
+  "topic": "8 Chords & Melodies",
+  "question": "What is the shortcut for Strumize?",
+  "options": [
+   "Alt + C",
+   "Alt + S",
+   "Alt + U",
+   "Alt + E"
+  ],
+  "answer": 1,
+  "explanation": "Alt + S is Strumize. Alt + C opens the Stamp tool.",
+  "source": "§ 8 Chords & Melodies > Strumize"
+ },
+ {
+  "id": "mcq-08-3",
+  "topic": "8 Chords & Melodies",
+  "question": "Your stamped chord sounds stiff and you want a guitar-like strum. What do you use?",
+  "options": [
+   "Chop chords",
+   "Scale highlighting",
+   "Strumize",
+   "Ghost Channels"
+  ],
+  "answer": 2,
+  "explanation": "Strumize slightly offsets the chord's notes for a natural strum. Chop chords turns the chord into an arpeggiated stream, which is a different effect.",
+  "source": "§ 8 Chords & Melodies > Strumize"
+ },
+ {
+  "id": "mcq-08-4",
+  "topic": "8 Chords & Melodies",
+  "question": "Which 2025 feature generates a bassline that matches your chord progression?",
+  "options": [
+   "Fill each 2 / 4 / 8 step in the Stamp menu",
+   "The Riff Machine (Alt + E) variations",
+   "Loop Starter genre-based templates",
+   "Bassline Mode (Chord Progression Tool)"
+  ],
+  "answer": 3,
+  "explanation": "Bassline Mode in the Chord Progression Tool builds a matching bassline. The Riff Machine generates melodic motifs, not a bassline from your chords.",
+  "source": "§ 8 Chords & Melodies > 2025 feature – Bassline Mode"
+ },
+ {
+  "id": "mcq-09-1",
+  "topic": "9 Piano Roll Tools (Basic)",
+  "question": "Where do you turn on Scale Highlighting?",
+  "options": [
+   "Helpers > Scale highlighting",
+   "Edit > Turn into automation clip",
+   "File > New from template",
+   "View menu > Tempo Tapper"
+  ],
+  "answer": 0,
+  "explanation": "Scale highlighting is in the Helpers menu. Edit > Turn into automation clip converts recorded automation instead.",
+  "source": "§ 9 Piano Roll Tools (Basic) > Scale Highlighting"
+ },
+ {
+  "id": "mcq-09-2",
+  "topic": "9 Piano Roll Tools (Basic)",
+  "question": "You're writing a bassline and want to see another channel's chord notes faintly. What do you turn on?",
+  "options": [
+   "Scale highlighting (Helpers)",
+   "Ghost Channels (Alt + V)",
+   "Chop chords (Alt + U)",
+   "Riff Machine (Alt + E)"
+  ],
+  "answer": 1,
+  "explanation": "Ghost Channels faintly shows notes from other channels. Scale highlighting dims out-of-scale notes but doesn't show other channels.",
+  "source": "§ 9 Piano Roll Tools (Basic) > Ghost Channels"
+ },
+ {
+  "id": "mcq-09-3",
+  "topic": "9 Piano Roll Tools (Basic)",
+  "question": "What does Chop chords (Alt + U) do?",
+  "options": [
+   "Offsets chord notes into a guitar-like strum",
+   "Places a full chord at the clicked root note",
+   "Turns a held chord into an arpeggiated stream",
+   "Slices a Playlist clip into smaller pieces"
+  ],
+  "answer": 2,
+  "explanation": "Chop chords arpeggiates a held chord. Offsetting chord notes into a strum is Strumize.",
+  "source": "§ 9 Piano Roll Tools (Basic) > Chop chords"
+ },
+ {
+  "id": "mcq-09-4",
+  "topic": "9 Piano Roll Tools (Basic)",
+  "question": "You're stuck for melody ideas over your progression. Which helper generates motifs and variations?",
+  "options": [
+   "Ghost Channels",
+   "Scale highlighting",
+   "Tempo Tapper",
+   "Riff Machine"
+  ],
+  "answer": 3,
+  "explanation": "The Riff Machine generates motifs and variations, which helps with writer's block. Ghost Channels only shows other channels' notes.",
+  "source": "§ 9 Piano Roll Tools (Basic) > Riff Machine"
+ },
+ {
+  "id": "mcq-10-1",
+  "topic": "10 Notes",
+  "question": "How do you transpose selected notes by one semitone?",
+  "options": [
+   "Shift + ↑/↓",
+   "Alt + R",
+   "Alt + U",
+   "Ctrl + L"
+  ],
+  "answer": 0,
+  "explanation": "Shift + arrow moves notes by a semitone. Alt + R randomises velocity and doesn't change pitch.",
+  "source": "§ 10 Notes > Common operations > Transpose"
+ },
+ {
+  "id": "mcq-10-2",
+  "topic": "10 Notes",
+  "question": "Where in the Piano Roll do you adjust how hard notes are played?",
+  "options": [
+   "The Scale highlighting menu",
+   "The velocity pane at the bottom",
+   "The channel's FX / TRK field",
+   "The Stamp tool dropdown"
+  ],
+  "answer": 1,
+  "explanation": "Velocity is set by dragging bars in the velocity pane at the bottom of the Piano Roll. The FX / TRK field routes a channel to the Mixer.",
+  "source": "§ 10 Notes > Common operations > Velocity"
+ },
+ {
+  "id": "mcq-10-3",
+  "topic": "10 Notes",
+  "question": "Your programmed keyboard part sounds robotic. Which shortcut does the source suggest to humanise it?",
+  "options": [
+   "Alt + S",
+   "Alt + V",
+   "Alt + R",
+   "Alt + E"
+  ],
+  "answer": 2,
+  "explanation": "Alt + R randomises velocity for a more human feel. Alt + S is Strumize, which offsets chord notes in time rather than velocity.",
+  "source": "§ 10 Notes > Common operations > Velocity"
+ },
+ {
+  "id": "mcq-10-4",
+  "topic": "10 Notes",
+  "question": "You want an 808 bassline that glides between pitches. What do you use?",
+  "options": [
+   "Chop chords",
+   "Strumize",
+   "Velocity randomising",
+   "Slide notes"
+  ],
+  "answer": 3,
+  "explanation": "Slide notes create pitch glides and are essential for 808 basslines. Strumize only offsets the notes of a chord.",
+  "source": "§ 10 Notes > Common operations > Slide notes"
+ },
+ {
+  "id": "mcq-11-1",
+  "topic": "11 Piano Roll Tools (Advanced / Generative)",
+  "question": "What does 'Fill each 2 / 4 / 8 step' do?",
+  "options": [
+   "Fills notes at fixed intervals for steady rhythms",
+   "Offsets chord notes for a natural, strummed feel",
+   "Generates melodic motifs from a progression",
+   "Turns a held chord into an arpeggiated stream"
+  ],
+  "answer": 0,
+  "explanation": "Fill each places notes automatically at fixed intervals. Generating melodic motifs is the Riff Machine's job.",
+  "source": "§ 11 Piano Roll Tools (Advanced / Generative) > Fill each 2 / 4 / 8 step"
+ },
+ {
+  "id": "mcq-11-2",
+  "topic": "11 Piano Roll Tools (Advanced / Generative)",
+  "question": "You want a kick on every 4th step without placing each one by hand. Which tool fits?",
+  "options": [
+   "Paint (brush) tool",
+   "Fill each 4 steps",
+   "Chop chords",
+   "Riff Machine"
+  ],
+  "answer": 1,
+  "explanation": "Fill each places notes at fixed intervals, like a kick every 4 steps. Paint draws continuous streams of notes, not notes at a set interval.",
+  "source": "§ 11 Piano Roll Tools (Advanced / Generative) > Fill each 2 / 4 / 8 step"
+ },
+ {
+  "id": "mcq-11-3",
+  "topic": "11 Piano Roll Tools (Advanced / Generative)",
+  "question": "Where does the source say the 'Fill each' options are?",
+  "options": [
+   "In the Helpers menu with Scale highlighting",
+   "In the Playlist's Clip menu with Chop",
+   "In the Stamp menu or related tools",
+   "In the Mixer's routing panel"
+  ],
+  "answer": 2,
+  "explanation": "The source places 'Fill each' in the Stamp menu or related tools. The Helpers menu is where Scale highlighting lives.",
+  "source": "§ 11 Piano Roll Tools (Advanced / Generative) > Fill each 2 / 4 / 8 step"
+ },
+ {
+  "id": "mcq-11-4",
+  "topic": "11 Piano Roll Tools (Advanced / Generative)",
+  "question": "Beyond basic melody generation, how is the Riff Machine used at an advanced level?",
+  "options": [
+   "Draw its control points in the Playlist",
+   "Route its output with Ctrl + L",
+   "Tap its tempo with the TAP button",
+   "Adjust its parameters to vary a motif"
+  ],
+  "answer": 3,
+  "explanation": "Adjusting Riff Machine parameters gives different variations of a motif as editable MIDI. Control points are drawn on Automation Clips, not the Riff Machine.",
+  "source": "§ 11 Piano Roll Tools (Advanced / Generative) > Riff Machine (advanced use)"
+ },
+ {
+  "id": "mcq-12-1",
+  "topic": "12 Tempo Tapper",
+  "question": "When is the Tempo Tapper useful?",
+  "options": [
+   "When you don't know a sample's BPM",
+   "When you need to reset the window layout",
+   "When you want to strum a chord",
+   "When a track's meter is clipping"
+  ],
+  "answer": 0,
+  "explanation": "The Tempo Tapper measures the BPM of a sample or melody you don't know. Resetting the layout is Shift + Ctrl + H.",
+  "source": "§ 12 Tempo Tapper"
+ },
+ {
+  "id": "mcq-12-2",
+  "topic": "12 Tempo Tapper",
+  "question": "How do you open the Tempo Tapper from the toolbar?",
+  "options": [
+   "Right-click the main Record button",
+   "Right-click the BPM value and choose Tap",
+   "Left-click the channel name",
+   "Right-click an empty plugin slot"
+  ],
+  "answer": 1,
+  "explanation": "Right-click the BPM value and choose Tap, or use the View menu. Right-clicking the main Record button opens the recording filter instead.",
+  "source": "§ 12 Tempo Tapper > How to use"
+ },
+ {
+  "id": "mcq-12-3",
+  "topic": "12 Tempo Tapper",
+  "question": "You want to check a loop's tempo without changing your project's BPM. What do you do?",
+  "options": [
+   "Turn Apply tempo on",
+   "Turn Snap off",
+   "Turn Apply tempo off",
+   "Untick Audio in the Record menu"
+  ],
+  "answer": 2,
+  "explanation": "With Apply tempo disabled, the Tapper only measures. With it enabled, the project tempo is set to the tapped value.",
+  "source": "§ 12 Tempo Tapper > How to use"
+ },
+ {
+  "id": "mcq-12-4",
+  "topic": "12 Tempo Tapper",
+  "question": "How does the Tempo Tapper work out the BPM?",
+  "options": [
+   "It reads the sample's name in the Browser",
+   "It reads the tempo from the Playlist",
+   "It counts steps in the Step Sequencer",
+   "You click TAP in time with the beat"
+  ],
+  "answer": 3,
+  "explanation": "You click TAP repeatedly in time with the beat, and after several taps FL Studio estimates the BPM. It doesn't read the tempo from anywhere.",
+  "source": "§ 12 Tempo Tapper > How to use"
+ },
+ {
+  "id": "mcq-13-1",
+  "topic": "13 Templates",
+  "question": "What are templates in FL Studio?",
+  "options": [
+   "Pre-configured project starting points",
+   "Genre presets for the Riff Machine",
+   "Saved chord types for the Stamp tool",
+   "Stock samples in the Packs folder"
+  ],
+  "answer": 0,
+  "explanation": "Templates are pre-configured starting points for a project. Saved chord types belong to the Stamp tool's dropdown, not templates.",
+  "source": "§ 13 Templates"
+ },
+ {
+  "id": "mcq-13-2",
+  "topic": "13 Templates",
+  "question": "How do you open a template?",
+  "options": [
+   "Right-click the BPM value > Tap",
+   "File > New from template",
+   "Right-click a channel > Insert >",
+   "Right-click Record > Automation"
+  ],
+  "answer": 1,
+  "explanation": "File > New from template lists the templates. Right-click a channel > Insert > adds an instrument channel instead.",
+  "source": "§ 13 Templates > How to use"
+ },
+ {
+  "id": "mcq-13-3",
+  "topic": "13 Templates",
+  "question": "What does Loop Starter (FL Studio 2025) offer?",
+  "options": [
+   "A bassline that follows your chord progression",
+   "A mini overview on the Playlist scrollbar",
+   "Genre-based loop templates with FL Cloud samples",
+   "A Type value field for automation nodes"
+  ],
+  "answer": 2,
+  "explanation": "Loop Starter gives genre-based loop templates with direct FL Cloud access. A bassline from your chords is Bassline Mode, a different 2025 feature.",
+  "source": "§ 13 Templates > 2025 feature – Loop Starter"
+ },
+ {
+  "id": "mcq-13-4",
+  "topic": "13 Templates",
+  "question": "You want every new project to open with your usual tracks, routing and effects. What do you do?",
+  "options": [
+   "Add your plugins to the Plugin Picker Favorites",
+   "Save the patterns in the Current project section",
+   "Turn on Loop Starter in New from template",
+   "Save it as a template in the Templates folder"
+  ],
+  "answer": 3,
+  "explanation": "Save the configured project as a template file in the Templates folder, and it appears in New from template. Favorites only reorder the Plugin Picker.",
+  "source": "§ 13 Templates > Custom templates"
+ },
+ {
+  "id": "mcq-14-1",
+  "topic": "14 Make Some Noise",
+  "question": "What is the goal of the 'Make Some Noise' exercise?",
+  "options": [
+   "A complete 4-bar loop",
+   "A fully mixed song",
+   "A recorded vocal take",
+   "A custom project template"
+  ],
+  "answer": 0,
+  "explanation": "The first practical goal is a complete 4-bar loop, not perfection. Mixing comes later in the learning path.",
+  "source": "§ 14 Make Some Noise"
+ },
+ {
+  "id": "mcq-14-2",
+  "topic": "14 Make Some Noise",
+  "question": "In the beginner loop, where do you click in the Kick, Clap/Snare and Hi-hat rhythm?",
+  "options": [
+   "Event Editor",
+   "Step Sequencer",
+   "Mixer routing panel",
+   "Plugin Picker"
+  ],
+  "answer": 1,
+  "explanation": "The drums are programmed in the Step Sequencer. The Event Editor is for editing recorded automation.",
+  "source": "§ 14 Make Some Noise > Step 1: Drums"
+ },
+ {
+  "id": "mcq-14-3",
+  "topic": "14 Make Some Noise",
+  "question": "In the exercise, what should the first bassline follow?",
+  "options": [
+   "The hi-hat pattern",
+   "The velocity pane",
+   "The root notes",
+   "The Master meter"
+  ],
+  "answer": 2,
+  "explanation": "The exercise draws the bassline following the root notes. The hi-hat pattern is part of the drums, not the bass.",
+  "source": "§ 14 Make Some Noise > Step 2: Bass"
+ },
+ {
+  "id": "mcq-14-4",
+  "topic": "14 Make Some Noise",
+  "question": "Which chain does the exercise aim to connect?",
+  "options": [
+   "Browser → Plugin Picker → Mixer",
+   "Playlist → Mixer → Master track",
+   "Piano Roll → Event Editor → Playlist",
+   "Channel Rack → Piano Roll → Playlist"
+  ],
+  "answer": 3,
+  "explanation": "The goal is to connect Channel Rack → Piano Roll → Playlist. The Mixer and Master come in later topics.",
+  "source": "§ 14 Make Some Noise"
+ },
+ {
+  "id": "mcq-15-1",
+  "topic": "15 Packs and Sounds",
+  "question": "How are the Packs organised?",
+  "options": [
+   "By style and type",
+   "By plugin category",
+   "By project usage",
+   "By FL Cloud edition"
+  ],
+  "answer": 0,
+  "explanation": "Packs are organised by style and type. Organising by category is how the Plugin database works.",
+  "source": "§ 15 Packs and Sounds"
+ },
+ {
+  "id": "mcq-15-2",
+  "topic": "15 Packs and Sounds",
+  "question": "What does the Sounds tab depend on?",
+  "options": [
+   "Whether Apply tempo is enabled",
+   "Whether your edition includes FL Cloud",
+   "Whether the track is record-armed",
+   "Whether Scale highlighting is on"
+  ],
+  "answer": 1,
+  "explanation": "The Sounds tab is available if your edition includes FL Cloud access. Apply tempo is a Tempo Tapper setting.",
+  "source": "§ 15 Packs and Sounds"
+ },
+ {
+  "id": "mcq-15-3",
+  "topic": "15 Packs and Sounds",
+  "question": "You need a riser effect fast. What does the source suggest?",
+  "options": [
+   "Open the Riff Machine and pick a riser",
+   "Create an automation clip named riser",
+   "Type 'riser' in the Browser search box",
+   "Look in the Event Editor for risers"
+  ],
+  "answer": 2,
+  "explanation": "The Browser's search box filters quickly, with 'riser' as one of the source's examples. The Riff Machine generates melodic motifs, not sound effects.",
+  "source": "§ 15 Packs and Sounds > Browsing tip"
+ },
+ {
+  "id": "mcq-15-4",
+  "topic": "15 Packs and Sounds",
+  "question": "Which kinds of content are in the Packs?",
+  "options": [
+   "Installed instruments and effects by category",
+   "Samples and files already used in this project",
+   "Genre-based loop templates for new projects",
+   "Drum samples, loops, one-shots and presets"
+  ],
+  "answer": 3,
+  "explanation": "Packs hold stock drum samples, loops, one-shot effects and presets. Installed instruments and effects are listed in the Plugin database.",
+  "source": "§ 15 Packs and Sounds"
+ },
+ {
+  "id": "mcq-16-1",
+  "topic": "16 Mixer Track Routing",
+  "question": "Where does a new Channel Rack instrument send its audio by default?",
+  "options": [
+   "Directly to the Master track",
+   "To the next free Mixer Insert",
+   "To the Insert you last selected",
+   "To a Send track for reverb"
+  ],
+  "answer": 0,
+  "explanation": "By default every instrument outputs straight to the Master. You must route it to its own Insert yourself.",
+  "source": "§ 16 Mixer Track Routing"
+ },
+ {
+  "id": "mcq-16-2",
+  "topic": "16 Mixer Track Routing",
+  "question": "You selected three channels in the Channel Rack and clicked Insert 5 in the Mixer. What do you press to route them?",
+  "options": [
+   "Alt + V",
+   "Ctrl + L",
+   "F2",
+   "Shift + Ctrl + H"
+  ],
+  "answer": 1,
+  "explanation": "Ctrl + L routes the selected channels to the selected Insert. F2 renames a Mixer track.",
+  "source": "§ 16 Mixer Track Routing > Three common routing methods"
+ },
+ {
+  "id": "mcq-16-3",
+  "topic": "16 Mixer Track Routing",
+  "question": "In a channel's settings panel, which field sets its Mixer Insert?",
+  "options": [
+   "Type value",
+   "Apply tempo",
+   "FX / TRK",
+   "Snap"
+  ],
+  "answer": 2,
+  "explanation": "Type or drag the Insert number in the FX / TRK field. Type value is a field in Automation Clip nodes.",
+  "source": "§ 16 Mixer Track Routing > Three common routing methods"
+ },
+ {
+  "id": "mcq-16-4",
+  "topic": "16 Mixer Track Routing",
+  "question": "Which channels does the source say to route to separate Inserts, at minimum?",
+  "options": [
+   "Only the kick and the bass",
+   "Only vocals and recorded audio",
+   "Every channel to one shared Insert",
+   "Kick, snare, hi-hat, bass, melody, vocals"
+  ],
+  "answer": 3,
+  "explanation": "For a clean mix, route at least kick, snare, hi-hat, bass, melody and vocals separately. Kick and bass alone isn't enough.",
+  "source": "§ 16 Mixer Track Routing > 2025 note"
+ },
+ {
+  "id": "mcq-17-1",
+  "topic": "17 Mixer Track Options",
+  "question": "How do you rename a selected Mixer track with the keyboard?",
+  "options": [
+   "F2",
+   "F5",
+   "F8",
+   "F9"
+  ],
+  "answer": 0,
+  "explanation": "F2 renames the selected track. F9 opens the Mixer itself.",
+  "source": "§ 17 Mixer Track Options > Common track options"
+ },
+ {
+  "id": "mcq-17-2",
+  "topic": "17 Mixer Track Options",
+  "question": "What happens when you right-click a Mixer track's green mute button?",
+  "options": [
+   "That track is muted on its own",
+   "That track solos and the others mute",
+   "The track is armed for recording",
+   "The track's effects are bypassed"
+  ],
+  "answer": 1,
+  "explanation": "Right-clicking the mute button solos the track and mutes all others. A normal click mutes the track.",
+  "source": "§ 17 Mixer Track Options > Common track options"
+ },
+ {
+  "id": "mcq-17-3",
+  "topic": "17 Mixer Track Options",
+  "question": "Why colour-code Mixer tracks by instrument group?",
+  "options": [
+   "To route them to the Master",
+   "To set their stereo width",
+   "To navigate the Mixer quickly",
+   "To arm them for recording"
+  ],
+  "answer": 2,
+  "explanation": "Consistent colours per group help you find tracks quickly. Colour has no effect on routing.",
+  "source": "§ 17 Mixer Track Options > Common track options"
+ },
+ {
+  "id": "mcq-17-4",
+  "topic": "17 Mixer Track Options",
+  "question": "Which controls at the top of a Mixer strip set panning and stereo width?",
+  "options": [
+   "The volume fader and peak meter",
+   "The record arm and input select",
+   "The effect slots and bypass lights",
+   "Pan and stereo separation knobs"
+  ],
+  "answer": 3,
+  "explanation": "The knobs at the top of the strip set pan and stereo width. The input selector is also at the top, but it chooses the recording input.",
+  "source": "§ 17 Mixer Track Options > Common track options"
+ },
+ {
+  "id": "mcq-18-1",
+  "topic": "18 Effects Rack",
+  "question": "How many effect slots does a Mixer track have?",
+  "options": [
+   "10",
+   "8",
+   "16",
+   "4"
+  ],
+  "answer": 0,
+  "explanation": "Each Mixer track has 10 effect slots. 16 is the number of Step Sequencer steps per bar, not effect slots.",
+  "source": "§ 18 Effects Rack"
+ },
+ {
+  "id": "mcq-18-2",
+  "topic": "18 Effects Rack",
+  "question": "In what order does audio pass through a track's effect slots?",
+  "options": [
+   "Slot 10 to Slot 1, bottom to top",
+   "Slot 1 to Slot 10, top to bottom",
+   "All slots at once, in parallel",
+   "Only the slot you last opened"
+  ],
+  "answer": 1,
+  "explanation": "Audio flows from Slot 1 to Slot 10, top to bottom, which is why order matters. It is not processed in parallel.",
+  "source": "§ 18 Effects Rack"
+ },
+ {
+  "id": "mcq-18-3",
+  "topic": "18 Effects Rack",
+  "question": "You want reverb to come after compression on a track. How do you reorder the effects?",
+  "options": [
+   "Right-click a slot and choose Replace >",
+   "Click the green indicator on a slot",
+   "Drag the slot labels into order",
+   "Route the track again with Ctrl + L"
+  ],
+  "answer": 2,
+  "explanation": "Dragging slot labels reorders effects and changes the signal flow. The green indicator only bypasses an effect.",
+  "source": "§ 18 Effects Rack > How to use"
+ },
+ {
+  "id": "mcq-18-4",
+  "topic": "18 Effects Rack",
+  "question": "Which is the typical effects order the source gives?",
+  "options": [
+   "Reverb, delay, compression, then EQ",
+   "Compression, reverb, EQ, then saturation",
+   "Creative, EQ, reverb, then compression",
+   "EQ, compression, creative, then delay/reverb"
+  ],
+  "answer": 3,
+  "explanation": "EQ fixes problems first, then compression, then creative effects, with time-based delay and reverb last. Putting reverb first reverses the recommended order.",
+  "source": "§ 18 Effects Rack > Typical order"
+ },
+ {
+  "id": "mcq-19-1",
+  "topic": "19 Mixer Panel Tools",
+  "question": "On a Mixer strip, which element shows the real-time level?",
+  "options": [
+   "Peak meter",
+   "Volume fader",
+   "Record Arm",
+   "Track name"
+  ],
+  "answer": 0,
+  "explanation": "The peak meter shows the real-time level. The volume fader sets the output level; it doesn't display it.",
+  "source": "§ 19 Mixer Panel Tools"
+ },
+ {
+  "id": "mcq-19-2",
+  "topic": "19 Mixer Panel Tools",
+  "question": "What does the Record Arm button on a Mixer track do?",
+  "options": [
+   "Ticks Audio in the main record filter",
+   "Arms the track as a recording destination",
+   "Creates an Automation Clip for the fader",
+   "Solos the track and mutes all others"
+  ],
+  "answer": 1,
+  "explanation": "Record Arm makes that Mixer track a recording destination. Ticking Audio is done separately, in the main Record button's right-click menu.",
+  "source": "§ 19 Mixer Panel Tools"
+ },
+ {
+  "id": "mcq-19-3",
+  "topic": "19 Mixer Panel Tools",
+  "question": "Where is the Record Arm button on a Mixer strip?",
+  "options": [
+   "At the top, above the name",
+   "Next to the pan knob",
+   "At the bottom of the strip",
+   "Inside effect slot 1"
+  ],
+  "answer": 2,
+  "explanation": "Record Arm is the circular (disk) button at the bottom of the strip. The track name sits at the top.",
+  "source": "§ 19 Mixer Panel Tools"
+ },
+ {
+  "id": "mcq-19-4",
+  "topic": "19 Mixer Panel Tools",
+  "question": "Your peak meter keeps hitting red. What does that mean?",
+  "options": [
+   "The track is soloed",
+   "The track is record-armed",
+   "The effect is bypassed",
+   "The track is clipping"
+  ],
+  "answer": 3,
+  "explanation": "Red on the peak meter means clipping, which you should avoid. Soloing is shown by the mute/solo button, not the meter.",
+  "source": "§ 19 Mixer Panel Tools"
+ },
+ {
+  "id": "mcq-20-1",
+  "topic": "20 Playlist",
+  "question": "What are the Playlist's tracks called?",
+  "options": [
+   "Multi-purpose Clip Tracks",
+   "Mixer Insert tracks",
+   "Step Sequencer rows",
+   "Dedicated Audio Tracks"
+  ],
+  "answer": 0,
+  "explanation": "Playlist tracks are multi-purpose Clip Tracks that can hold any clip type. Mixer Inserts are in the Mixer.",
+  "source": "§ 20 Playlist"
+ },
+ {
+  "id": "mcq-20-2",
+  "topic": "20 Playlist",
+  "question": "Which clip type plays a Pattern from the Channel Rack?",
+  "options": [
+   "Audio Clip",
+   "Pattern Clip",
+   "Automation Clip",
+   "Sampler Channel"
+  ],
+  "answer": 1,
+  "explanation": "A Pattern Clip plays a Pattern's notes and drums. A Sampler Channel is a Channel Rack instrument, not a Playlist clip.",
+  "source": "§ 20 Playlist > Clip types"
+ },
+ {
+  "id": "mcq-20-3",
+  "topic": "20 Playlist",
+  "question": "You import a recorded vocal into the Playlist. Which clip type holds it?",
+  "options": [
+   "Pattern Clip",
+   "Automation Clip",
+   "Audio Clip",
+   "Event Data"
+  ],
+  "answer": 2,
+  "explanation": "Audio Clips play recorded or imported audio. Pattern Clips play note data from a Pattern.",
+  "source": "§ 20 Playlist > Clip types"
+ },
+ {
+  "id": "mcq-20-4",
+  "topic": "20 Playlist",
+  "question": "Which statement about Playlist tracks is true?",
+  "options": [
+   "Each track holds one clip type only",
+   "Tracks hold Pattern Clips only",
+   "Audio needs a separate Mixer view",
+   "Any track can hold any clip type"
+  ],
+  "answer": 3,
+  "explanation": "Playlist tracks are multi-purpose: Pattern, Audio and Automation Clips can sit on any of them. They are not limited to one type.",
+  "source": "§ 20 Playlist"
+ },
+ {
+  "id": "mcq-21-1",
+  "topic": "21 Patterns To Songs",
+  "question": "Which analogy does the source use for Patterns and the Playlist?",
+  "options": [
+   "Ingredients and the finished dish",
+   "Notes and the velocity pane",
+   "Channels and the Master track",
+   "Slots and the Effects Rack"
+  ],
+  "answer": 0,
+  "explanation": "Patterns are the ingredients and the Playlist is the finished dish. Channels and the Master describe the Mixer's routing, not song building.",
+  "source": "§ 21 Patterns To Songs"
+ },
+ {
+  "id": "mcq-21-2",
+  "topic": "21 Patterns To Songs",
+  "question": "What does pressing L do?",
+  "options": [
+   "Opens the Piano Roll",
+   "Switches to Song mode",
+   "Randomises velocity",
+   "Routes to an Insert"
+  ],
+  "answer": 1,
+  "explanation": "L switches to Song mode, which plays the Playlist arrangement. Routing to an Insert is Ctrl + L, not L on its own.",
+  "source": "§ 21 Patterns To Songs"
+ },
+ {
+  "id": "mcq-21-3",
+  "topic": "21 Patterns To Songs",
+  "question": "You change the notes in your Chorus Pattern, which appears four times in the Playlist. What happens?",
+  "options": [
+   "Only the first clip updates",
+   "Only the clip you clicked updates",
+   "All four clips update automatically",
+   "The clips turn into Audio Clips"
+  ],
+  "answer": 2,
+  "explanation": "Every clip referencing a Pattern updates when you edit it. It isn't only the clip you clicked.",
+  "source": "§ 21 Patterns To Songs"
+ },
+ {
+  "id": "mcq-21-4",
+  "topic": "21 Patterns To Songs",
+  "question": "In Song mode, in what order do clips play?",
+  "options": [
+   "The order the Patterns were created",
+   "Alphabetical order by Pattern name",
+   "The order of the Channel Rack rows",
+   "The order they appear in the Playlist"
+  ],
+  "answer": 3,
+  "explanation": "Song mode plays clips in the order they appear in the Playlist, left to right. Creation order doesn't matter.",
+  "source": "§ 21 Patterns To Songs"
+ },
+ {
+  "id": "mcq-22-1",
+  "topic": "22 Playlist Tools",
+  "question": "Which clip types can Chop slice in the Playlist?",
+  "options": [
+   "Pattern and Automation Clips",
+   "Audio Clips only",
+   "Sampler Channels",
+   "Mixer Inserts"
+  ],
+  "answer": 0,
+  "explanation": "The source says Chop slices Pattern or Automation Clips. It doesn't say Chop works on Audio Clips.",
+  "source": "§ 22 Playlist Tools > Chop"
+ },
+ {
+  "id": "mcq-22-2",
+  "topic": "22 Playlist Tools",
+  "question": "What does Snap control in the Playlist?",
+  "options": [
+   "The level at which a meter starts clipping",
+   "Grid resolution for moving and slicing clips",
+   "The order in which effects are processed",
+   "The tempo set by the Tempo Tapper"
+  ],
+  "answer": 1,
+  "explanation": "Snap sets the grid resolution for moving and slicing clips. It doesn't cut anything by itself.",
+  "source": "§ 22 Playlist Tools > Snap"
+ },
+ {
+  "id": "mcq-22-3",
+  "topic": "22 Playlist Tools",
+  "question": "You want to box-select several clips in the Playlist to move them. Which tool do you use?",
+  "options": [
+   "Chop",
+   "Snap",
+   "Select tool (E)",
+   "Mini overview"
+  ],
+  "answer": 2,
+  "explanation": "The Select tool (E) box-selects and moves clips. Chop slices clips rather than selecting them.",
+  "source": "§ 22 Playlist Tools > Select tool"
+ },
+ {
+  "id": "mcq-22-4",
+  "topic": "22 Playlist Tools",
+  "question": "Which 2025 improvement was added to the Playlist's horizontal scrollbar?",
+  "options": [
+   "A Type value field",
+   "A Bassline Mode",
+   "A Loop Starter",
+   "A mini overview"
+  ],
+  "answer": 3,
+  "explanation": "A mini overview on the scrollbar helps you navigate long songs. Type value is the 2025 Automation Clip improvement.",
+  "source": "§ 22 Playlist Tools > 2025 improvement"
+ },
+ {
+  "id": "mcq-23-1",
+  "topic": "23 Audio Recording",
+  "question": "What is the first step in recording vocals?",
+  "options": [
+   "Open the Mixer and select a free Insert",
+   "Open the Piano Roll and draw the notes",
+   "Open the Browser and load a pack",
+   "Open the Plugin Picker and pick an effect"
+  ],
+  "answer": 0,
+  "explanation": "Recording starts in the Mixer (F9) on a free Insert Track. The Browser is for loading existing media, not recording.",
+  "source": "§ 23 Audio Recording > Step 1"
+ },
+ {
+  "id": "mcq-23-2",
+  "topic": "23 Audio Recording",
+  "question": "Where on a Mixer track do you choose the audio interface input, such as In 1?",
+  "options": [
+   "At the bottom, next to arm",
+   "At the top of the track",
+   "Inside effect slot 1",
+   "In the channel settings panel"
+  ],
+  "answer": 1,
+  "explanation": "The input source is set at the top of the track. The record-arm button is the control at the bottom.",
+  "source": "§ 23 Audio Recording > Step 2"
+ },
+ {
+  "id": "mcq-23-3",
+  "topic": "23 Audio Recording",
+  "question": "Which item must be ticked in the main Record button's right-click menu to record audio?",
+  "options": [
+   "Automation",
+   "Apply tempo",
+   "Audio",
+   "Snap"
+  ],
+  "answer": 2,
+  "explanation": "Audio must be ticked to record audio. Automation, in the same menu, records knob movements instead.",
+  "source": "§ 23 Audio Recording > Step 4"
+ },
+ {
+  "id": "mcq-23-4",
+  "topic": "23 Audio Recording",
+  "question": "After recording audio, what does FL Studio create?",
+  "options": [
+   "An Automation Clip and Event Data",
+   "A Sampler Channel in the Channel Rack",
+   "A Pattern Clip on a Clip Track",
+   "An Audio Clip and a linked Audio Track"
+  ],
+  "answer": 3,
+  "explanation": "The recording appears as an Audio Clip, with an Audio Track created and linked automatically. A Sampler Channel is what you get from dragging audio into the Channel Rack.",
+  "source": "§ 23 Audio Recording > Step 5"
+ },
+ {
+  "id": "mcq-24-1",
+  "topic": "24 Recording & Editing Automation",
+  "question": "You want to record a filter sweep by turning the cutoff knob live. What do you set first?",
+  "options": [
+   "Tick Automation in the Record menu",
+   "Tick Audio in the Record menu",
+   "Arm the Mixer track for recording",
+   "Turn on Apply tempo in the Tapper"
+  ],
+  "answer": 0,
+  "explanation": "Right-click the main Record button and tick Automation, then record while turning the knob. Ticking Audio records sound, not knob movements.",
+  "source": "§ 24 Recording & Editing Automation > A. Record automation"
+ },
+ {
+  "id": "mcq-24-2",
+  "topic": "24 Recording & Editing Automation",
+  "question": "Recording automation by turning a knob first creates what?",
+  "options": [
+   "An Automation Clip",
+   "Event Data",
+   "An Audio Clip",
+   "A Pattern Clip"
+  ],
+  "answer": 1,
+  "explanation": "Recorded automation becomes Event Data, which you edit in the Event Editor. It only becomes an Automation Clip if you convert it.",
+  "source": "§ 24 Recording & Editing Automation > A. Record automation"
+ },
+ {
+  "id": "mcq-24-3",
+  "topic": "24 Recording & Editing Automation",
+  "question": "How do you turn recorded Event Data into an Automation Clip?",
+  "options": [
+   "Right-click the knob > Create automation clip",
+   "File > New from template",
+   "Edit > Turn into automation clip",
+   "Helpers > Scale highlighting"
+  ],
+  "answer": 2,
+  "explanation": "Edit > Turn into automation clip converts recorded Event Data. Create automation clip on a knob makes a new empty clip instead of converting your recording.",
+  "source": "§ 24 Recording & Editing Automation > A. Record automation"
+ },
+ {
+  "id": "mcq-24-4",
+  "topic": "24 Recording & Editing Automation",
+  "question": "After creating an Automation Clip manually, how do you shape the parameter change?",
+  "options": [
+   "Drag the slot labels into order",
+   "Tap the TAP button in time",
+   "Turn the knob while recording",
+   "Draw control points on the clip"
+  ],
+  "answer": 3,
+  "explanation": "Use the Draw tool to place control points on the clip and shape the curve. Turning the knob while recording is the other method, and it creates Event Data.",
+  "source": "§ 24 Recording & Editing Automation > B. Create an Automation Clip manually"
+ },
+ {
+  "id": "mcq-25-1",
+  "topic": "25 Mixing & Effects",
+  "question": "What is the main aim of mixing?",
+  "options": [
+   "Sounds coexist without masking each other",
+   "Every track is as loud as possible",
+   "All sounds share one Insert track",
+   "The Master meter stays in the red"
+  ],
+  "answer": 0,
+  "explanation": "Mixing makes sounds coexist in volume, frequency and space without masking. The Master meter should not be constantly red.",
+  "source": "§ 25 Mixing & Effects"
+ },
+ {
+  "id": "mcq-25-2",
+  "topic": "25 Mixing & Effects",
+  "question": "Which plugins does the source list for compression?",
+  "options": [
+   "Fruity Parametric EQ 2",
+   "Fruity Compressor / Fruity Limiter",
+   "Fruity Reeverb 2",
+   "Sytrus / FLEX"
+  ],
+  "answer": 1,
+  "explanation": "Fruity Compressor and Fruity Limiter are named for compression. Fruity Parametric EQ 2 is the EQ.",
+  "source": "§ 25 Mixing & Effects > Core workflow > Effects processing"
+ },
+ {
+  "id": "mcq-25-3",
+  "topic": "25 Mixing & Effects",
+  "question": "You want the vocal and the snare to sit in the same reverb space. What does the source suggest?",
+  "options": [
+   "Put reverb in slot 1 of each track",
+   "Route both to the Master only",
+   "Use Sends to share one reverb",
+   "Sidechain the vocal to the snare"
+  ],
+  "answer": 2,
+  "explanation": "Sends share one reverb or delay so several sounds sit in the same space. Sidechain is for ducking, not shared space.",
+  "source": "§ 25 Mixing & Effects > Core workflow > Effects processing"
+ },
+ {
+  "id": "mcq-25-4",
+  "topic": "25 Mixing & Effects",
+  "question": "In the source's sidechain example, what happens to the bass?",
+  "options": [
+   "It triggers the kick's compressor",
+   "It is routed to the Master only",
+   "It is soloed when the kick plays",
+   "It ducks when the kick hits"
+  ],
+  "answer": 3,
+  "explanation": "The kick triggers a compressor on the bass, so the bass ducks. The bass is the sound being compressed, not the trigger.",
+  "source": "§ 25 Mixing & Effects > Core workflow > Sidechain"
+ },
+ {
+  "id": "mcq-26-1",
+  "topic": "26 Plugins",
+  "question": "What does a Generator plugin do?",
+  "options": [
+   "Produces sound",
+   "Processes sound",
+   "Routes sound",
+   "Records sound"
+  ],
+  "answer": 0,
+  "explanation": "Generators (instruments) produce sound. Effects are the plugins that process sound.",
+  "source": "§ 26 Plugins"
+ },
+ {
+  "id": "mcq-26-2",
+  "topic": "26 Plugins",
+  "question": "Which of these is an Effect plugin?",
+  "options": [
+   "Sytrus",
+   "Fruity Reeverb 2",
+   "FLEX",
+   "Sampler"
+  ],
+  "answer": 1,
+  "explanation": "Fruity Reeverb 2 processes sound, so it is an Effect. Sytrus, FLEX and the Sampler are Generators.",
+  "source": "§ 26 Plugins"
+ },
+ {
+  "id": "mcq-26-3",
+  "topic": "26 Plugins",
+  "question": "You press F8. Which window opens to let you choose Generator and Effect plugins?",
+  "options": [
+   "Browser",
+   "Plugin Manager",
+   "Plugin Picker",
+   "Channel Rack"
+  ],
+  "answer": 2,
+  "explanation": "F8 opens the Plugin Picker, which manages plugins. The Browser opens with Alt/Opt + F8 instead.",
+  "source": "§ 26 Plugins"
+ },
+ {
+  "id": "mcq-26-4",
+  "topic": "26 Plugins",
+  "question": "What 2025 change lets you fix a plugin that is listed under the wrong type?",
+  "options": [
+   "Plugin Picker adds it to Favorites",
+   "Browser moves it to Current project",
+   "Loop Starter regroups it by genre",
+   "Plugin Manager can change its type"
+  ],
+  "answer": 3,
+  "explanation": "The Plugin Manager can now change a plugin's type, e.g. Effect to Generator, after verification. Favorites only move it to the top of the list.",
+  "source": "§ 26 Plugins > Management tips > 2025 improvement"
+ },
+ {
+  "id": "mcq-27-1",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "question": "What is middle C called in FL Studio's default naming?",
+  "options": [
+   "C5",
+   "C4",
+   "C3",
+   "C6"
+  ],
+  "answer": 0,
+  "explanation": "FL Studio names middle C as C5. C4 is the octave below in FL's naming.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Pitch"
+ },
+ {
+  "id": "mcq-27-2",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "question": "Two notes share the same letter name and one has double the frequency. What interval separates them?",
+  "options": [
+   "A semitone",
+   "An octave",
+   "A chord",
+   "A bar"
+  ],
+  "answer": 1,
+  "explanation": "An octave is double or half the frequency, with the same letter name. A semitone is the smallest interval, one grid step.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Octave"
+ },
+ {
+  "id": "mcq-27-3",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "question": "What is the smallest interval in Western music, equal to one step on the Piano Roll grid?",
+  "options": [
+   "An octave",
+   "A beat",
+   "A semitone",
+   "A key"
+  ],
+  "answer": 2,
+  "explanation": "A semitone is one piano key or one Piano Roll grid step. An octave is a much larger interval.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Semitone (Half Step)"
+ },
+ {
+  "id": "mcq-27-4",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "question": "In 4/4 time, how many beats are usually in a bar?",
+  "options": [
+   "16",
+   "8",
+   "3",
+   "4"
+  ],
+  "answer": 3,
+  "explanation": "A bar usually has 4 beats in 4/4. 16 is the number of Step Sequencer steps per bar.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Beat & Bar"
+ },
+ {
+  "id": "mcq-27-5",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "question": "A piano and a guitar play the same pitch but sound different. What is that difference called?",
+  "options": [
+   "Timbre",
+   "Velocity",
+   "Harmony",
+   "Rhythm"
+  ],
+  "answer": 0,
+  "explanation": "Timbre is the character or colour of a sound. Velocity is how hard a note is played, which changes loudness.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Timbre (Tone Colour)"
+ },
+ {
+  "id": "mcq-27-6",
+  "topic": "27 Music Theory & Terminology for FL Studio",
+  "question": "What does 'key' mean?",
+  "options": [
+   "A set of notes in ascending order",
+   "The central note a piece is built around",
+   "Three or more notes played together",
+   "The pattern of sounds in time"
+  ],
+  "answer": 1,
+  "explanation": "The key is the central note a piece is built around, e.g. C major. A set of notes in order is a scale.",
+  "source": "§ 27 Music Theory & Terminology for FL Studio > Key"
+ }
+]
